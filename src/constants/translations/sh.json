@@ -1,0 +1,157 @@
+{
+  "common": {
+    "appDetails": "App Details",
+    "appName": "App name",
+    "appVersion": "App version",
+    "buildVersion": "Build version",
+    "expoVersion": "Expo version",
+    "about": "About",
+    "visit": "Visit",
+    "posted": "Posted on {{date}}",
+    "recommended": "Recommended for you",
+    "viewall": "View All",
+    "more": "More",
+    "follow": "Follow",
+    "followed": "Followed",
+    "search": "Search",
+    "night": "night",
+    "day": "day",
+    "booknow": "Book Now",
+    "selectDate": "Select date",
+    "checkInOut": "Check-In & Check-Out",
+    "adults": "Adults",
+    "roomType": "Room Type",
+    "luxury": "Luxury",
+    "message": "Enter your message",
+    "album": "Album",
+    "or": "or",
+    "name": "Name",
+    "namePlaceholder": "Enter your full name",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email address",
+    "password": "Password",
+    "passwordPlaceholder": "Enter a password",
+    "agree": "I agree with the ",
+    "terms": "Terms and Conditions",
+    "signup": "Sign Up",
+    "signin": "Sign In",
+    "goBack": "Go back",
+    "inStock": "In stock",
+    "outStock": "Out of stock",
+    "addToCart": "Add to cart",
+    "checkout": "Proceed to checkout",
+    "readArticle": "ලිපිය කියවන්න",
+    "selecting_suitable_pediatricians":"සුදුසු ළමා රෝග විශේෂඥයින් තෝරා ගැනීම",
+    "send": "Send",
+    "guests": {
+      "one": "1 guest",
+      "other": "{{count}} guests",
+      "zero": "0 Guests"
+    }
+  },
+  "app": {
+    "name": "මවු තුරුල ",
+    "fullname": "මවු තුරුල ",
+    "organization":"ආයතනය",
+    "native": "Reae",
+    "link": "creative-tim.com",
+    "company": "University of Colombo School of Computing"
+  },
+  "darkMode": "Dark Mode",
+  "screens": {
+    "home": "මුල් පිටුව",
+    "community":"දෙමාපියන්ගේ සමාජය",
+    "articles": "ලිපි",
+    "pediatrician": "ළදරු වෛද්යවරුන්",
+    "baby_names": "ළදරු නම්",
+    "tools": "මෙවලම්",
+    "online_clinic_card": "ඔන්ලයින් සායන කාඩ්පත",
+    "baby_shop": "ළදරු භාණ්ඩ සාප්පුව",
+    "register": "ලියාපදිංචි වීමට",
+    "login": "ඇතුල් වන්න",
+    "rental": "Rental",
+    "profile": "Profile",
+    "settings": "Settings",
+    "extra": "Extra - Automotive",
+    "components": "දෙමාපියන්ගේ සමාජය "
+  },
+  "navigation": {
+    "home": "මවු තුරුල ",
+    "components": "මව්වරුන්ගේ සමාජය ",
+    "articles": "ලිපි",
+    "rentals": "මවු තුරුල ",
+    "rental": "Best Deal",
+    "booking": "Booking",
+    "chat": "Chat",
+    "profile": "Profile",
+    "settings": "Settings",
+    "notifications": "Notifications",
+    "agreement": "User Agreement",
+    "about": "About",
+    "privacy": "Privacy",
+    "register": "Register",
+    "login": "Login",
+    "extra": "Automotive",
+    "shopping": "Shopping Cart"
+  },
+  "menu": {
+    "started": "Getting Started",
+    "documentation": "Documentation",
+    "ideas_and_accusations": "අදහස් සහ චෝදනා"
+  },
+  "home": {
+    "title": "මවු තුරුල ",
+    "welcome": "ආයුබෝවන් !", 
+    "following": "Following",
+    "articles": "ලිපි",
+    "article": "ලිපිය ",
+    "community":"දෙමාපියන්ගේ සමාජය",
+    "getting_pregnant": "ගැබ් ගැනීමට පෙර",
+    "pregnancy": "ගැබ් ගැනීමට පසු",
+    "baby": "ළමයා",
+    "shop": "Following",
+    "trending": "ජනප්‍රිය",
+    "this_week":"මෙම සතියේ",
+    "diary": "දිනපොත",
+    "music": "සංගීත",
+    "photos": "ඡායාරූප එකතුව ",
+    "mothers_and_newborns": "මව්වරුන් සහ අලුත උපන් දරුවන් ",
+    "load_more": "තව බලන්න",
+    "click_here": "මෙතන ක්ලික් කරන්න",
+    "common": "පොදු",
+    "nameing_baby": "දරුවාට නම් තැබීම"
+  },
+  "register": {
+    "title": "Welcome",
+    "subtitle": "Register with"
+  },
+  "profile": {
+    "title": "Profile",
+    "posts": "Posts",
+    "followers": "Followers",
+    "following": "Following",
+    "aboutMe": "About me"
+  },
+  "pro": {
+    "title": "මවු තුරුල  PRO",
+    "alert": "This feature is available in PRO version",
+    "components": "• {{count} Components (Buttons, Inputs, Cards, etc)",
+    "screens": "• {{count} Screens (Shopping, Notifications, Chat, etc)",
+    "support": "• Premium Support included",
+    "takeAdvantage": "Take advantage of all the features and screens coded on React Native for both",
+    "appTemplate": "මවු තුරුල  PRO React Native is an innovative app template that will help you built stunning mobile applications in no time. It features a huge number of components and screens built to fit together and look amazing:",
+    "saveTime": "This modern app template will save you a lot of time going from prototyping to full-functional code, because all elements are implemented. We wanted the design process to be seamless, so switching from image to the real page is very easy to do!",
+    "buyNow": "Buy now"
+  },
+
+  "temp_user":{
+    "name": " මදුනි තරුක්ෂි  ලොකුගේ "
+  },
+
+  "alert": {
+    "title": "මවු තුරුල ",
+    "message_1": "ආයුබෝවන් අම්මලා"
+  }
+
+  
+}
