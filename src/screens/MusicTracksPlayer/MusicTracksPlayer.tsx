@@ -7,7 +7,6 @@ import MusicPayerCard from "../../components/MusicPlayer/MusicPayerCard";
 
 const MusicTracksPlayer = () => {
   const { t } = useTranslation();
-  const [tab, setTab] = useState<number>(1);
   const { following, trending } = useData();
   const [products, setProducts] = useState(following);
   const { assets, colors, fonts, gradients, sizes } = useTheme();
@@ -63,7 +62,7 @@ const MusicTracksPlayer = () => {
         url: "https://www.mboxdrive.com/%d0%91%d1%83%d1%82%d1%8b%d1%80%d0%ba%d0%b0%20-%20%d0%90%d1%82%d1%82%d0%b5%d1%81%d1%82%d0%b0%d1%82.mp3",
         like: 84,
 
-        dislike: 25, 
+        dislike: 25,
         image: "https://img.freepik.com/free-photo/pregnant-woman-with-ultrasound-photo-listening-music_1303-27139.jpg"
       },
       {
@@ -72,7 +71,7 @@ const MusicTracksPlayer = () => {
         url: "https://www.mboxdrive.com/%d0%91%d1%80%d0%b5%d0%bc%d0%b5%d0%bd%d1%81%d0%ba%d0%b8%d0%b5_%d0%bc%d1%83%d0%b7%d1%8b%d0%ba%d0%b0%d0%bd%d1%82%d1%8b_Remix_Modern_Music_Bass_Boost.mp3",
         like: 31,
 
-        dislike: 25, 
+        dislike: 25,
         image: "https://i.postimg.cc/DwTBpxGz/pregnanat-lisint-music.jpg"
       }
     ]);
@@ -82,10 +81,12 @@ const MusicTracksPlayer = () => {
     <Block
       scroll
       showsVerticalScrollIndicator={false}>
-
-
       <Block >
-
+        <Block >
+          <Text h5 color={colors.primary} align='center' marginVertical={sizes.sm}>
+            {t('home.music_for_mind_relaxing_pregnancy_women')}
+          </Text>
+        </Block>
         <FlatList
           data={MusicTracksPlayer}
           showsHorizontalScrollIndicator={false}
@@ -98,9 +99,6 @@ const MusicTracksPlayer = () => {
       </Block>
     </Block>
   )
-
 }
-
-
 
 export default MusicTracksPlayer;
