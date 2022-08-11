@@ -50,8 +50,8 @@
     }
   },
   "app": {
-    "name": "මවු තුරුල ",
-    "fullname": "මවු තුරුල ",
+    "name": "මව් තුරුල ",
+    "fullname": "මව් තුරුල ",
     "organization":"ආයතනය",
     "native": "Reae",
     "link": "creative-tim.com",
@@ -77,10 +77,10 @@
     "Pregnancy_Tracking": "ගර්භනී කාන්තාවගේ දිනපොත"
   },
   "navigation": {
-    "home": "මවු තුරුල ",
+    "home": "මව් තුරුල ",
     "components": "මව්වරුන්ගේ සමාජය ",
     "articles": "ලිපි",
-    "rentals": "මවු තුරුල ",
+    "rentals": "මව් තුරුල ",
     "rental": "Best Deal",
     "booking": "Booking",
     "chat": "Chat",
@@ -101,7 +101,7 @@
     "ideas_and_accusations": "අදහස් සහ චෝදනා"
   },
   "home": {
-    "title": "මවු තුරුල ",
+    "title": "මව් තුරුල ",
     "welcome": "ආයුබෝවන් !", 
     "following": "Following",
     "articles": "ලිපි",
@@ -146,13 +146,13 @@
     "aboutMe": "About me"
   },
   "pro": {
-    "title": "මවු තුරුල  PRO",
+    "title": "මව් තුරුල  PRO",
     "alert": "This feature is available in PRO version",
     "components": "• {{count} Components (Buttons, Inputs, Cards, etc)",
     "screens": "• {{count} Screens (Shopping, Notifications, Chat, etc)",
     "support": "• Premium Support included",
     "takeAdvantage": "Take advantage of all the features and screens coded on React Native for both",
-    "appTemplate": "මවු තුරුල  PRO React Native is an innovative app template that will help you built stunning mobile applications in no time. It features a huge number of components and screens built to fit together and look amazing:",
+    "appTemplate": "මව් තුරුල  PRO React Native is an innovative app template that will help you built stunning mobile applications in no time. It features a huge number of components and screens built to fit together and look amazing:",
     "saveTime": "This modern app template will save you a lot of time going from prototyping to full-functional code, because all elements are implemented. We wanted the design process to be seamless, so switching from image to the real page is very easy to do!",
     "buyNow": "Buy now"
   },
@@ -162,7 +162,7 @@
   },
 
   "alert": {
-    "title": "මවු තුරුල ",
+    "title": "මව් තුරුල ",
     "message_1": "ආයුබෝවන් අම්මලා"
   }
 
