@@ -73,7 +73,8 @@
     "profile": "Profile",
     "settings": "Settings",
     "extra": "Extra - Automotive",
-    "components": "දෙමාපියන්ගේ සමාජය "
+    "components": "දෙමාපියන්ගේ සමාජය ",
+    "Pregnancy_Tracking": "ගර්භනී කාන්තාවගේ දිනපොත"
   },
   "navigation": {
     "home": "මවු තුරුල ",
@@ -93,7 +94,7 @@
     "login": "Login",
     "extra": "Automotive",
     "shopping": "Shopping Cart"
-  },
+    },
   "menu": {
     "started": "Getting Started",
     "documentation": "Documentation",
@@ -121,6 +122,11 @@
     "common": "පොදු",
     "nameing_baby": "දරුවාට නම් තැබීම",
     "music_for_mind_relaxing_pregnancy_women": "ගර්භනී කාන්තාවන්ගේ මනස ලිහිල් කරන සංගීතය"
+  },
+  "pregnancy_tracker":{
+    "Pregnancy_Tracking": "ගර්භනී කාන්තාවගේ දිනපොත",
+    "your_pregnancy": "ඔබගේ ගැබ් ගැනීම",
+    "week": "සතිය"
   },
   "register": {
     "title": "Welcome",

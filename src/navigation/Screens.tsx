@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Articles, Components, Home, Profile, Register, Pro } from '../screens';
+import PregnancyTracker from '../screens/Pregnancy_tracking/PregnancyTracker';
 import { useScreenOptions, useTranslation } from '../hooks';
 
 const Stack = createStackNavigator();
@@ -14,7 +15,7 @@ export default () => {
     <Stack.Navigator screenOptions={screenOptions.stack}>
       <Stack.Screen
         name="Home"
-        component={Home}
+        component={PregnancyTracker}
         options={{ title: t('navigation.home') }}
       />
 
@@ -48,6 +49,12 @@ export default () => {
         name="Register"
         component={Register}
         options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Pregnancy_Tracking"
+        component={Home}
+        options={{ headerShown: true }}
       />
     </Stack.Navigator>
   );

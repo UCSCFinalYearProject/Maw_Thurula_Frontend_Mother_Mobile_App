@@ -87,6 +87,7 @@ const DrawerContent = (
   const screens = [
     {name: t('screens.home'), to: 'Home', icon: assets.home},
     {name: t('screens.articles'), to: 'Articles', icon: assets.components},
+    {name: t('screens.Pregnancy_Tracking'), to: 'Pregnancy_Tracking', icon: assets.components},
     {name: t('screens.community'), to: 'Community', icon: assets.home},
     {name: t('screens.pediatrician'), to: 'Pediatrician', icon: assets.document},
     {name: t('screens.baby_names'), to: 'Baby_Names', icon: assets.rental},
