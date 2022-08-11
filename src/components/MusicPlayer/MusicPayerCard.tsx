@@ -7,11 +7,9 @@ import Block from '../Block';
 import Image from '../Image';
 import { useTheme, useTranslation } from '../../hooks';
 import { IMusicTrack } from '../../constants/types';
-import { Dimensions, StyleSheet } from 'react-native';
-
+import { StyleSheet } from 'react-native';
 import SoundPlayer from 'react-native-sound-player';
 import Button from '../Button';
-import { TouchableHighlight } from 'react-native-gesture-handler';
 
 const MusicPayerCard = ({
   id,
@@ -23,9 +21,9 @@ const MusicPayerCard = ({
 }: IMusicTrack) => {
 
   const { t } = useTranslation();
-  const windowWidth = Dimensions.get('window').width;
   const { assets, colors, fonts, icons, gradients, sizes } = useTheme();
   const [isFav, setIsFav] = useState(false);
+
   const palySound = () => {
     try {
       SoundPlayer.playUrl(url)
@@ -38,7 +36,7 @@ const MusicPayerCard = ({
     try {
       SoundPlayer.stop();
     } catch (e) {
-      console.log(`cannot play the sound file`, e)
+      console.log(`cannot stop the sound file`, e)
     }
   }
 
@@ -46,7 +44,7 @@ const MusicPayerCard = ({
     try {
       SoundPlayer.pause();
     } catch (e) {
-      console.log(`cannot play the sound file`, e)
+      console.log(`cannot pause the sound file`, e)
     }
   }
 
@@ -54,7 +52,7 @@ const MusicPayerCard = ({
     try {
       SoundPlayer.resume();
     } catch (e) {
-      console.log(`cannot play the sound file`, e)
+      console.log(`cannot resume the sound file`, e)
     }
   }
 
@@ -104,17 +102,11 @@ const MusicPayerCard = ({
               <Text h5 white align='center'  marginBottom={sizes.md}>
                 {id}. {title}
               </Text>
-
-
               <Block
                 scroll
                 style={[styles.mainComtainer]}
-
                 showsVerticalScrollIndicator={false}>
-
-
                 <Block column padding={5} radius={19} flex={0} justify="space-between" >
-
                   <Block row card gradient={gradients.menu}  marginVertical={8}  >
                     {/* <Button style={styles.player_button} flex={1} gradient={gradients.dark} marginBottom={sizes.base} onPress={getInfo}>
                       <Image source={icons.earbuds} color={colors.white} style={{ width: 25, height: 25 }} />

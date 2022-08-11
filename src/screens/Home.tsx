@@ -14,7 +14,7 @@ const Home = () => {
   const [tab, setTab] = useState<number>(1);
   const { following, trending } = useData();
   const [products, setProducts] = useState(following);
-  const { assets, colors, fonts, gradients, sizes , icons } = useTheme();
+  const { assets, colors, fonts, gradients, sizes, icons } = useTheme();
   const windowWidth = Dimensions.get('window').width;
 
   const handleProducts = useCallback(
@@ -155,7 +155,7 @@ const Home = () => {
               width={sizes.socialIconSize}
               height={sizes.socialIconSize}
               gradient={gradients?.[tab === 1 ? 'primary' : 'secondary']}>
-              <Image source={icons.home} color={colors.white} style={{width: 13, height: 13}}  radius={0} />
+              <Image source={icons.home} color={colors.white} style={{ width: 13, height: 13 }} radius={0} />
             </Block>
             <Text p font={fonts?.[tab === 1 ? 'medium' : 'normal']}>
               {t('screens.home')}
@@ -180,7 +180,7 @@ const Home = () => {
               width={sizes.socialIconSize}
               height={sizes.socialIconSize}
               gradient={gradients?.[tab === 0 ? 'primary' : 'secondary']}>
-              <Image source={icons.gallery} color={colors.white} style={{width: 20, height: 20}} radius={0} />
+              <Image source={icons.gallery} color={colors.white} style={{ width: 20, height: 20 }} radius={0} />
             </Block>
             <Text p font={fonts?.[tab === 0 ? 'medium' : 'normal']}>
               {t('home.photos')}
@@ -205,7 +205,7 @@ const Home = () => {
               width={sizes.socialIconSize}
               height={sizes.socialIconSize}
               gradient={gradients?.[tab === 2 ? 'primary' : 'secondary']}>
-              <Image source={icons.earbuds} color={colors.white} style={{width: 15, height: 15}}  />
+              <Image source={icons.earbuds} color={colors.white} style={{ width: 15, height: 15 }} />
             </Block>
             <Text p font={fonts?.[tab === 2 ? 'medium' : 'normal']}>
               {t('home.music')}
@@ -223,7 +223,7 @@ const Home = () => {
         tab == 1 ? <HomeContent /> : <></>
       }
 
-{
+      {
         tab == 2 ? <MusicTracksPlayer /> : <></>
       }
 
