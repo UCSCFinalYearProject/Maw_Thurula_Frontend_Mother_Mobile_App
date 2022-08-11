@@ -126,7 +126,13 @@
   "pregnancy_tracker":{
     "Pregnancy_Tracking": "ගර්භනී කාන්තාවගේ දිනපොත",
     "your_pregnancy": "ඔබගේ ගැබ් ගැනීම",
-    "week": "සතිය"
+    "week": "සතිය",
+    "more_days":"තව දවස්",
+    "Length":"දිග",
+    "Weight":"බර",
+    "Your_Baby":"ඔබේ දරුවා",
+    "Your_Body":	"ඔබේ ශරීරය",
+    "Things_to_remember": "මතක තබා ගත යුතු දේ"
   },
   "register": {
     "title": "Welcome",
