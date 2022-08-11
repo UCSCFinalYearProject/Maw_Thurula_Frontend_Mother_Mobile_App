@@ -15,7 +15,7 @@ export default () => {
     <Stack.Navigator screenOptions={screenOptions.stack}>
       <Stack.Screen
         name="Home"
-        component={PregnancyTracker}
+        component={Home}
         options={{ title: t('navigation.home') }}
       />
 
@@ -53,8 +53,8 @@ export default () => {
 
       <Stack.Screen
         name="Pregnancy_Tracking"
-        component={Home}
-        options={{ headerShown: true }}
+        component={PregnancyTracker}
+        options={{ title: t('navigation.home') }}
       />
     </Stack.Navigator>
   );

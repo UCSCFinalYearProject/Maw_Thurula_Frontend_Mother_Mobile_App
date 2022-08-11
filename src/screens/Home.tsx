@@ -8,14 +8,25 @@ import { Dimensions } from 'react-native';
 import PhotoGallery from './PhotoGallary';
 import LandingCoursol from '../components/Home/LandingCoursol';
 import MusicTracksPlayer from './MusicTracksPlayer/MusicTracksPlayer';
+import {
+  useIsDrawerOpen,
+  createDrawerNavigator,
+  DrawerContentComponentProps,
+  DrawerContentOptions,
+  DrawerContentScrollView,
+} from '@react-navigation/drawer';
 
-const Home = () => {
+const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
+  const {navigation} = props;
   const { t } = useTranslation();
   const [tab, setTab] = useState<number>(1);
   const { following, trending } = useData();
   const [products, setProducts] = useState(following);
   const { assets, colors, fonts, gradients, sizes, icons } = useTheme();
   const windowWidth = Dimensions.get('window').width;
+  const handleNavigation = (name: string) => {
+    navigation.navigate(name);
+  }
 
   const handleProducts = useCallback(
     (tab: number) => {
@@ -130,9 +141,12 @@ const Home = () => {
           </Block>
         </Block>
 
-        <Block flex={0} align={"center"} radius={50} width={100} style={{ borderColor: "green", borderWidth: 1 }} padding={sizes.s}>
+       <Button onPress={() => handleNavigation("Pregnancy_Tracking")}>
+       <Block flex={0} align={"center"} radius={50} width={100} style={{ borderColor: "green", borderWidth: 1 }} padding={sizes.s}
+            >
           <Text> {t("home.diary")}  </Text>
         </Block>
+       </Button>
       </Block>
 
       <Block
