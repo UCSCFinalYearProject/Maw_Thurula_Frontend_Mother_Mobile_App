@@ -141,6 +141,16 @@
     "Your_Body":	"ඔබේ ශරීරය",
     "Things_to_remember": "මතක තබා ගත යුතු දේ"
   },
+  "baby_tracker":{
+    "Baby_Tracking": "ළදරු රැකවරණ පොත    ",
+    "your_pregnancy": "ඔබගේ ගැබ් ගැනීම",
+    "month": "මාසය",
+    "Length":"දිග",
+    "Weight":"බර",
+    "things_know":"ඔබ දැනගතයුතු කරුණු ",
+    "Your_Body":	"ඔබේ ශරීරය",
+    "Things_to_remember": "මතක තබා ගත යුතු දේ"
+  },
   "register": {
     "title": "Welcome",
     "subtitle": "Register with"

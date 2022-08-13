@@ -6,6 +6,7 @@ import AR_Baby from '../screens/AR/AR_Baby';
 import MainArticle from '../screens/MainArticles/MainArticle';;
 import PregnancyTracker from '../screens/Pregnancy_tracking/PregnancyTracker';
 import { useScreenOptions, useTranslation } from '../hooks';
+import BabyTracker from '../screens/Baby_tracking/BabyTracker';
 
 const Stack = createStackNavigator();
 
@@ -17,10 +18,14 @@ export default () => {
     <Stack.Navigator screenOptions={screenOptions.stack}>
       <Stack.Screen
         name="Home"
-        component={MainArticle}
+        component={BabyTracker}
         options={{ title: t('navigation.home') }}
       />
-
+      <Stack.Screen
+        name="baby_care"
+        component={BabyTracker}
+        options={{ title: t('navigation.home') }}
+      />
       <Stack.Screen
         name="Community"
         component={Components}
@@ -62,6 +67,8 @@ export default () => {
         component={PregnancyTracker}
         options={{ title: t('navigation.home') }}
       />
+
+       
 
       <Stack.Screen
         name="AR"
