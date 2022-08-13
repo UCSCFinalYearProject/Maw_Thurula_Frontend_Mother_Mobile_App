@@ -2224,14 +2224,19 @@
   "resolved" "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   "version" "15.7.5"
 
-"@types/react-native@0.67.6":
-  "integrity" "sha512-NM6atxrefIXMLE/PyQ1bIQjQ/lWLdls3uVxItzKvNUUVZlGqgn/uGN4MarM9quSf90uSqJYPIAeAgTtBTUjhgg=="
-  "resolved" "https://registry.npmjs.org/@types/react-native/-/react-native-0.67.6.tgz"
-  "version" "0.67.6"
-  dependencies:
-    "@types/react" "*"
+"@types/react-native-app-link@^1.0.0":
+  "integrity" "sha512-6N7xALQXAz4MNym+fbpb3iza5G7aKlAi6Rzt0CvYNspzqBYjNIDHnyGHnFzg42JwFuOyvcXmlkU8kAhHnTxhTw=="
+  "resolved" "https://registry.npmjs.org/@types/react-native-app-link/-/react-native-app-link-1.0.0.tgz"
+  "version" "1.0.0"
 
-"@types/react@*", "@types/react@17.0.21":
+"@types/react-native@0.68.2":
+  "integrity" "sha512-6h4SjpX0rwjO9E+R+J+OFebeJpIxrMWJpMsDceyhqnk1C3Nlg0J6QWvatzSRFK+nRvQi1rgtauG7ABzZTm22tw=="
+  "resolved" "https://registry.npmjs.org/@types/react-native/-/react-native-0.68.2.tgz"
+  "version" "0.68.2"
+  dependencies:
+    "@types/react" "^17"
+
+"@types/react@^17", "@types/react@17.0.21":
   "integrity" "sha512-GzzXCpOthOjXvrAUFQwU/svyxu658cwu00Q9ugujS4qc1zXgLFaO0kS2SLOaMWLt2Jik781yuHCWB7UcYdGAeQ=="
   "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.21.tgz"
   "version" "17.0.21"
@@ -6428,6 +6433,11 @@
   "resolved" "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz"
   "version" "1.2.4"
 
+"link@^1.5.1":
+  "integrity" "sha512-80GBz0JfARAPedegdwtMHJ4tiPCQNqi9UZ0womJ5YU6Zw/Jc8JRji5cnhqkxGTTFAPLs1HftUDf81qUQg0aY0Q=="
+  "resolved" "https://registry.npmjs.org/link/-/link-1.5.1.tgz"
+  "version" "1.5.1"
+
 "locate-path@^3.0.0":
   "integrity" "sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A=="
   "resolved" "https://registry.npmjs.org/locate-path/-/locate-path-3.0.0.tgz"
@@ -7931,6 +7941,11 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
 
+"react-native-app-link@^1.0.1":
+  "integrity" "sha512-usPcJMZMVvRs/lBSy/UU+ooB+h2YhMXGA47xvWVltyOQerQu4hKSWG+qG2BRKcpHmTkmFynDSf5cLWztXwAA1w=="
+  "resolved" "https://registry.npmjs.org/react-native-app-link/-/react-native-app-link-1.0.1.tgz"
+  "version" "1.0.1"
+
 "react-native-codegen@^0.0.17":
   "integrity" "sha512-7GIEUmAemH9uWwB6iYXNNsPoPgH06pxzGRmdBzK98TgFBdYJZ7CBuZFPMe4jmHQTPOkQazKZ/w5O6/71JBixmw=="
   "resolved" "https://registry.npmjs.org/react-native-codegen/-/react-native-codegen-0.0.17.tgz"
@@ -8028,7 +8043,7 @@
     "normalize-css-color" "^1.0.2"
     "prop-types" "^15.6.0"
 
-"react-native@*", "react-native@^0.0.0-0 || 0.60 - 0.68 || 1000.0.0", "react-native@>=0.42.0", "react-native@>=0.48.4", "react-native@>=0.57", "react-native@0.65.1", "react-native@0.68.2":
+"react-native@*", "react-native@^0.0.0-0 || 0.60 - 0.68 || 1000.0.0", "react-native@>=0.20.0", "react-native@>=0.42.0", "react-native@>=0.48.4", "react-native@>=0.57", "react-native@0.65.1", "react-native@0.68.2":
   "integrity" "sha512-qNMz+mdIirCEmlrhapAtAG+SWVx6MAiSfCbFNhfHqiqu1xw1OKXdzIrjaBEPihRC2pcORCoCHduHGQe/Pz9Yuw=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.68.2.tgz"
   "version" "0.68.2"

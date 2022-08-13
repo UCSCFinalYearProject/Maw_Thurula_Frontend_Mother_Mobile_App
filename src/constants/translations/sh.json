@@ -13,7 +13,7 @@
     "more": "More",
     "follow": "Follow",
     "followed": "Followed",
-    "search": "Search",
+    "search": "සොයන්න",
     "night": "night",
     "day": "day",
     "booknow": "Book Now",
@@ -75,8 +75,13 @@
     "settings": "Settings",
     "extra": "Extra - Automotive",
     "components": "දෙමාපියන්ගේ සමාජය ",
-    "Pregnancy_Tracking": "ගර්භනී කාන්තාවගේ දිනපොත"
+    "Pregnancy_Tracking": "ගර්භනී කාන්තාවගේ දිනපොත",
+    "baby_care": "baby_Care"
   },
+  "articles": {
+    "mother": "මව",
+    "father": "පියා"
+  } ,
   "navigation": {
     "home": "මව් තුරුල ",
     "components": "මව්වරුන්ගේ සමාජය ",
@@ -149,8 +154,8 @@
   },
   "pro": {
     "title": "මව් තුරුල  PRO",
-    "alert": "This feature is available in PRO version",
-    "components": "• {{count} Components (Buttons, Inputs, Cards, etc)",
+    "alert": "This feature is comming soon...",
+    "components": "• Shooping Cart",
     "screens": "• {{count} Screens (Shopping, Notifications, Chat, etc)",
     "support": "• Premium Support included",
     "takeAdvantage": "Take advantage of all the features and screens coded on React Native for both",

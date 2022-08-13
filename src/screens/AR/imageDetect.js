@@ -186,31 +186,31 @@ var HelloWorldSceneAR = createReactClass({
 
 
 ViroMaterials.createMaterials({
-  white: {
-    diffuseTexture: require('./res/tesla/playing/PlayingBabyDiffuseMap.jpg'),
-    metalnessTexture: require('./res/tesla/object_car_main_Metallic.png'),
-    roughnessTexture: require('./res/tesla/object_car_main_Roughness.png'),
-  },
-  blue: {
-    diffuseTexture: require('./res/tesla/playing/PlayingBabyDiffuseMapDark.jpg'),
-    metalnessTexture: require('./res/tesla/object_car_main_Metallic.png'),
-    roughnessTexture: require('./res/tesla/object_car_main_Roughness.png'),
-  },
-  grey: {
-    diffuseTexture: require('./res/tesla/object_car_main_Base_Color_grey.png'),
-    metalnessTexture: require('./res/tesla/object_car_main_Metallic.png'),
-    roughnessTexture: require('./res/tesla/object_car_main_Roughness.png'),
-  },
-  red: {
-    diffuseTexture: require('./res/tesla/object_car_main_Base_Color_red.png'),
-    metalnessTexture: require('./res/tesla/object_car_main_Metallic.png'),
-    roughnessTexture: require('./res/tesla/object_car_main_Roughness.png'),
-  },
-  yellow: {
-    diffuseTexture: require('./res/tesla/object_car_main_Base_Color_yellow.png'),
-    metalnessTexture: require('./res/tesla/object_car_main_Metallic.png'),
-    roughnessTexture: require('./res/tesla/object_car_main_Roughness.png'),
-  },
+  // white: {
+  //   diffuseTexture: require('./res/tesla/playing/PlayingBabyDiffuseMap.jpg'),
+  //   metalnessTexture: require('./res/tesla/object_car_main_Metallic.png'),
+  //   roughnessTexture: require('./res/tesla/object_car_main_Roughness.png'),
+  // },
+  // blue: {
+  //   diffuseTexture: require('./res/tesla/playing/PlayingBabyDiffuseMapDark.jpg'),
+  //   metalnessTexture: require('./res/tesla/object_car_main_Metallic.png'),
+  //   roughnessTexture: require('./res/tesla/object_car_main_Roughness.png'),
+  // },
+  // grey: {
+  //   diffuseTexture: require('./res/tesla/object_car_main_Base_Color_grey.png'),
+  //   metalnessTexture: require('./res/tesla/object_car_main_Metallic.png'),
+  //   roughnessTexture: require('./res/tesla/object_car_main_Roughness.png'),
+  // },
+  // red: {
+  //   diffuseTexture: require('./res/tesla/object_car_main_Base_Color_red.png'),
+  //   metalnessTexture: require('./res/tesla/object_car_main_Metallic.png'),
+  //   roughnessTexture: require('./res/tesla/object_car_main_Roughness.png'),
+  // },
+  // yellow: {
+  //   diffuseTexture: require('./res/tesla/object_car_main_Base_Color_yellow.png'),
+  //   metalnessTexture: require('./res/tesla/object_car_main_Metallic.png'),
+  //   roughnessTexture: require('./res/tesla/object_car_main_Roughness.png'),
+  // },
   white_sphere: {
     diffuseColor: "rgb(231,231,231)",
   },

@@ -76,6 +76,8 @@ export const ICONS: ThemeIcons = {
     thumb_up: require('../assets/icons/images/thumb-up.png'),
     thumb_down: require('../assets/icons/images/thumb-down.png'),
     award: require('../assets/icons/images/award.png'),
+    father: require('../assets/icons/images/father.png'),
+    mother: require('../assets/icons/images/mother.png'),
 
 };
 

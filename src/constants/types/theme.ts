@@ -251,6 +251,8 @@ export interface ThemeIcons {
     thumb_up: ImageSourcePropType,
     thumb_down: ImageSourcePropType,
     award: ImageSourcePropType,
+    mother: ImageSourcePropType,
+    father: ImageSourcePropType,
 
 }
 
