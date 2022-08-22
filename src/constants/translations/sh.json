@@ -24,18 +24,18 @@
     "luxury": "Luxury",
     "message": "Enter your message",
     "album": "Album",
-    "or": "or",
-    "name": "Name",
-    "namePlaceholder": "Enter your full name",
-    "email": "Email",
-    "emailPlaceholder": "Enter your email address",
-    "password": "Password",
-    "passwordPlaceholder": "Enter a password",
-    "agree": "I agree with the ",
-    "terms": "Terms and Conditions",
-    "signup": "Sign Up",
-    "signin": "Sign In",
-    "goBack": "Go back",
+    "or": "හෝ",
+    "name": "නම",
+    "namePlaceholder": "ඔබගේ නම ඇතුලත් කරන්න",
+    "email": "විද්යුත් තැපෑල",
+    "emailPlaceholder": "ඔබගේ විද්යුත් තැපෑල ඇතුලත් කරන්න",
+    "password": "මුරපදය",
+    "passwordPlaceholder": "ඔබගේ මුරපදය ඇතුලත් කරන්න",
+    "agree": "සමග එකඟ වෙමි",
+    "terms": "නියම සහ කොන්දේසි",
+    "signup": "ලියාපදිංචි වන්න",
+    "signin": "ඇතුල් වන්න",
+    "goBack": "ආපසු යන්න",
     "inStock": "In stock",
     "outStock": "Out of stock",
     "addToCart": "Add to cart",
@@ -161,7 +161,9 @@
   },
   "register": {
     "title": "Welcome",
-    "subtitle": "Register with"
+    "subtitle": "Register with",
+    "": ""
+    
   },
   "profile": {
     "title": "Profile",
@@ -190,6 +192,4 @@
     "title": "මව් තුරුල ",
     "message_1": "ආයුබෝවන් අම්මලා"
   }
-
-  
 }

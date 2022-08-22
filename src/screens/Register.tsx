@@ -109,7 +109,6 @@ const Register = () => {
               card
               flex={0}
               intensity={90}
-              radius={50}
               overflow="hidden"
               justify="space-evenly"
               paddingVertical={sizes.sm}>
@@ -167,13 +166,13 @@ const Register = () => {
                   onPress={(value) => handleChange({agreed: value})}
                 />
                 <Text paddingRight={sizes.s}>
-                  {t('common.agree')}
+                  {t('common.terms')} {" "}
                   <Text
                     semibold
                     onPress={() => {
                       Linking.openURL('https://www.creative-tim.com/terms');
                     }}>
-                    {t('common.terms')}
+                    {t('common.agree')} 
                   </Text>
                 </Text>
               </Block>
@@ -187,7 +186,7 @@ const Register = () => {
                   {t('common.signup')}
                 </Text>
               </Button>
-              <Button
+              {/* <Button
                 primary
                 outlined
                 shadow={!isAndroid}
@@ -197,14 +196,16 @@ const Register = () => {
                 <Text bold primary transform="uppercase">
                   {t('common.signin')}
                 </Text>
-              </Button>
+              </Button> */}
               <Block
                 row
                 flex={0}
                 align="center"
                 justify="center"
                 marginBottom={sizes.sm}
-                paddingHorizontal={sizes.xxl}>
+                paddingHorizontal={sizes.xxl}
+                marginTop={15}>
+            
                 <Block
                   flex={0}
                   height={1}
@@ -212,8 +213,9 @@ const Register = () => {
                   end={[1, 0]}
                   start={[0, 1]}
                   gradient={gradients.divider}
+
                 />
-                <Text center marginHorizontal={sizes.s}>
+                <Text center marginHorizontal={sizes.s} >
                   {t('common.or')}
                 </Text>
                 <Block
@@ -223,13 +225,12 @@ const Register = () => {
                   end={[0, 1]}
                   start={[1, 0]}
                   gradient={gradients.divider}
-                  paddingBottom={10}
                 />
               </Block>
               
-              <Text p semibold center>
+              {/* <Text p semibold center>
                 {t('register.subtitle')}
-              </Text>
+              </Text> */}
               {/* social buttons */}
               
               <Block row center justify="space-evenly" marginVertical={sizes.m}>
@@ -241,14 +242,14 @@ const Register = () => {
                     color={isDark ? colors.icon : undefined}
                   />
                 </Button>
-                <Button outlined gray shadow={!isAndroid}>
+                {/* <Button outlined gray shadow={!isAndroid}>
                   <Image
                     source={assets.apple}
                     height={sizes.m}
                     width={sizes.m}
                     color={isDark ? colors.icon : undefined}
                   />
-                </Button>
+                </Button> */}
                 <Button outlined gray shadow={!isAndroid}>
                   <Image
                     source={assets.google}
