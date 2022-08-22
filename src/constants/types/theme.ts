@@ -270,6 +270,7 @@ export interface ThemeAssets {
   Bindumathi?: any;
 
   logo: ImageSourcePropType;
+  logoWithLable: ImageSourcePropType;
   header: ImageSourcePropType;
   background: ImageSourcePropType;
 

@@ -47,7 +47,10 @@
       "one": "1 guest",
       "other": "{{count}} guests",
       "zero": "0 Guests"
-    }
+    },
+    "already_have_an_account":"දැනටමත් ගිණුමක් තිබේද?",
+    "welcome": "ආයුබෝවන් !",
+    "already_have_an_account_signin": "ඔබට ගිණුමක් නැද්ද? දෙන්ම ලියාපදිංචි වෙන්න."
   },
   "app": {
     "name": "මව් තුරුල ",
@@ -76,7 +79,8 @@
     "extra": "Extra - Automotive",
     "components": "දෙමාපියන්ගේ සමාජය ",
     "Pregnancy_Tracking": "ගර්භනී කාන්තාවගේ දිනපොත",
-    "baby_care": "ළදරු රැකවරණ පොත "
+    "baby_care": "ළදරු රැකවරණ පොත ",
+    "signin" : "ඇතුල් වන්න"
   },
   "community":{
       "post_a_post":"ලිපියක් පලකරන්න ",
