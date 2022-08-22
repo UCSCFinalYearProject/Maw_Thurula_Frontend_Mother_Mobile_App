@@ -97,6 +97,7 @@ const DrawerContent = (
     {name: t('screens.online_clinic_card'), to: 'Online_Clinic_Card', icon: assets.settings},
     {name: t('screens.baby_shop'), to: 'Baby_Shop', icon: assets.register},
     {name: t('screens.register'), to: 'Register', icon: assets.register},
+    {name: t('screens.signin'), to: 'Signin', icon: assets.register},
   ];
 
   // const screens = [
