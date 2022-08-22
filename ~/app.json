@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "මවු තුරුල",
+    "slug": "Maw_Thurula",
+    "description": "Maw_Thurula ",
+    "primaryColor": "#FFFFFF",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#FFFFFF"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.mawthurula.v1"
+    },
+    "web": {
+      "favicon": "./assets/favicon.icon"
+    }
+  }
+}
