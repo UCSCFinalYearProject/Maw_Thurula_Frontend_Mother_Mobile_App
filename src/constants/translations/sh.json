@@ -50,7 +50,17 @@
     },
     "already_have_an_account":"දැනටමත් ගිණුමක් තිබේද?",
     "welcome": "ආයුබෝවන් !",
-    "already_have_an_account_signin": "ඔබට ගිණුමක් නැද්ද? දෙන්ම ලියාපදිංචි වෙන්න."
+    "already_have_an_account_signin": "ඔබට ගිණුමක් නැද්ද? දෙන්ම ලියාපදිංචි වෙන්න.",
+    "mobile_number": "දුරකථන අංකය",
+    "mobilePlaceholder": "ඔබගේ දුරකථන අංකය ඇතුලත් කරන්න",
+    "enter_opt": "කරුණාකර ඔබගේ ජංගම දුරකථනයට SMS මගින් එවූ කේතය ඇතුලත් කරන්න .",
+    "otp_varification":"ජංගම දුරකථන අංකය තහවරු කිරීම.",
+    "confim_otp":"තහවරු කරන්න",
+    "resend": "නැවත OTP කේතය යවන්න.",
+    "welcome_to_mawthurula": "වෙත සාදරයෙන් පිළිගනිමු",
+    "welcome_sub_text": "අප රකින අපිරිමිත සෙනෙහස අම්මා ",
+    "to_home_page": "මුල් පිටුව වෙත"
+
   },
   "app": {
     "name": "මව් තුරුල ",

@@ -22,10 +22,16 @@ export default () => {
   return (
     <Stack.Navigator screenOptions={screenOptions.stack}>
       <Stack.Screen
-        name="Home1"
+        name="Home"
         component={Home}
         options={{ title: t('navigation.home') }}
       />
+
+    {/* <Stack.Screen
+        name="Home"
+        component={Register}
+        options={{ headerShown: false }}
+      /> */}
       <Stack.Screen
         name="baby_care"
         component={BabyTracker}
@@ -95,7 +101,7 @@ export default () => {
       />
 
       <Stack.Screen
-        name="Home"
+        name="Register"
         component={Register}
         options={{ headerShown: false }}
       />
