@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, TouchableNativeFeedback, Linking, Alert, TouchableOpacity } from 'react-native';
+import { FlatList, StyleSheet, TouchableNativeFeedback, Linking, Alert, TouchableOpacity, View } from 'react-native';
 import { Dimensions } from 'react-native';
 import AppLink from 'react-native-app-link';
 
@@ -20,8 +20,22 @@ const Ecommerce = (props: DrawerContentComponentProps<DrawerContentOptions>) => 
             name: t('ecommerce.New_Arrivals'),
             image: "",
         },
+       
+        {
+            name: t('ecommerce.special_packages'),
+            image: "",
+        },
+        {
+            name: t('ecommerce.Bedding'),
+            image: "",
+        },
         {
             name: t('ecommerce.Baby_Essentials'),
+            image: "",
+        },
+        
+        {
+            name: t('ecommerce.Mother_Essentials'),
             image: "",
         },
         {
@@ -31,15 +45,8 @@ const Ecommerce = (props: DrawerContentComponentProps<DrawerContentOptions>) => 
         {
             name: t('ecommerce.Boys_Clothing'),
             image: "",
-        },
-        {
-            name: t('ecommerce.Bedding'),
-            image: "",
-        },
-        {
-            name: t('ecommerce.special_packages'),
-            image: "",
-        },
+        }
+       
 
     ])
     const [productsList, setProductsList] = useState([
@@ -218,7 +225,7 @@ const Ecommerce = (props: DrawerContentComponentProps<DrawerContentOptions>) => 
                 {
                     category_list.map((item, index) => {
                         return <TouchableOpacity key={index + item.name} >
-                            <Block flex={0} align={"center"} justify="center" marginHorizontal={5}>
+                            <Block card flex={0} align={"center"} justify="center" height={150} width={100} marginHorizontal={5}>
                                 <Block
                                     flex={0}
                                     align={"center"}
@@ -232,62 +239,53 @@ const Ecommerce = (props: DrawerContentComponentProps<DrawerContentOptions>) => 
                                     <Image source={icons.father} color={colors.white} style={{ width: 35, height: 35 }} radius={0} />
 
                                 </Block>
-                                <Text paddingTop={5} > {item.name}  </Text>
+                                <Text paddingTop={5} center > {item.name}  </Text>
                             </Block>
                         </TouchableOpacity>
                     })
                 }
             </Block>
-
-
-
-            <Block
-                paddingVertical={20}
-                width={windowWidth}
-                padding={sizes.s}
-
-                style={{}}>
-
-                <FlatList
-                    data={productsList}
-                    showsHorizontalScrollIndicator={false}
-                    showsVerticalScrollIndicator={false}
-                    keyExtractor={(item) => `${item?.id}`}
-                    contentContainerStyle={{ paddingBottom: sizes.s }}
-                    renderItem={({ item, index }) => {
+            <View style={{flexDirection: "row",
+    flexWrap: "wrap", width: windowWidth, justifyContent: "space-between" , paddingHorizontal: sizes.s,}} >
+                {
+                    productsList.map( (item, index) => {
                         return <Block card key={index + item.name} margin={10}
-                            flex={0} align={"center"} justify="center" marginHorizontal={5} style={{
-                                height: 300, width: 200,
-                            }}>
-                            <Text h5 center> {item.name}  </Text>
-                            <Image source={{ uri: item.imge }}
-                                color={colors.white} background
-                                marginTop={10}
-                                resizeMode="cover" style={{ width: 150, height: 150 }} radius={0} />
-                            {
-                                item.offer == 0 ? <Block flex={1} row>
-                                    <Text > Rs {item.price}.00 </Text>
+                        flex={0} align={"center"} justify="center" marginHorizontal={5} style={{
+                            height: 300, width: windowWidth/2 - 25,
+                        }}>
+                        <Text h5 center paddingVertical={10}> {item.name}  </Text>
+                        <Image source={{ uri: item.imge }}
+                            color={colors.white} background
+                            marginVertical={10}
 
-                                </Block> :
-                                    <Block flex={1} row>
-                                        <Text style={{textDecorationLine: 'line-through', color: 'gray'}}> Rs {item.price}.00 </Text>
-                                        <Text color={'red'} >  Rs {item.price}.00  </Text>
+                            resizeMode="cover" style={{ width: 150, height: 150 }} radius={0} />
+                        {
+                            item.offer == 0 ? <Block flex={1} row>
+                                <Text size={17} > Rs {item.price}.00 </Text>
 
-                                    </Block>
-                            }
-                            <Block
-                                flex={0}
-                                align={"center"}
-                                radius={10}
-                                style={{ borderColor: "green", borderWidth: 1, backgroundColor: "green" }}
-                                padding={sizes.s}>
-                                <Text color={"white"}> View </Text>
-                            </Block>
+                            </Block> :
+                                <Block flex={1} row>
+                                    <Text style={{textDecorationLine: 'line-through', color: 'gray'}}> Rs {item.price}.00 </Text>
+                                    <Text size={17}  color={'red'} >  Rs {item.price}.00  </Text>
+
+                                </Block>
+                        }
+                        <Block
+                            flex={0}
+                            align={"center"}
+                            radius={10}
+                            width={"95%"}
+                            style={{ borderColor: "green", borderWidth: 1, backgroundColor: "green" }}
+                            padding={sizes.s}>
+                            <Text color={"white"}> View </Text>
                         </Block>
-                    }}
-                />
+                    </Block>
+                    })
+                }
+            </View>
 
-            </Block>
+
+           
 
             <Block flex={1} align={"center"} justify="center" width={windowWidth} style={{ borderColor: "gray", borderWidth: 0 }} padding={sizes.s}>
                 <Block flex={0} align={"center"} radius={50} style={{ borderColor: "green", borderWidth: 1, backgroundColor: "green" }} padding={sizes.s}>
