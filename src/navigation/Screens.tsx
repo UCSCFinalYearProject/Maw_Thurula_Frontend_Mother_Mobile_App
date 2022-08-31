@@ -13,6 +13,7 @@ import PrediatricianProfile from '../screens/PrediatricianProfile/PrediatricianP
 import Tools from '../screens/tools/Tools';
 import EDD from '../screens/tools/EDD';
 import Ovulation from '../screens/tools/Ovulation';
+import Ecommerce from '../screens/ECommerce/Ecommerce';
 const Stack = createStackNavigator();
 
 export default () => {
@@ -23,7 +24,7 @@ export default () => {
     <Stack.Navigator screenOptions={screenOptions.stack}>
       <Stack.Screen
         name="Home"
-        component={Home}
+        component={Ecommerce}
         options={{ title: t('navigation.home') }}
       />
 

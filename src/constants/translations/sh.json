@@ -201,5 +201,16 @@
   "alert": {
     "title": "මව් තුරුල ",
     "message_1": "ආයුබෝවන් අම්මලා"
+  },
+  "ecommerce": {
+    "mycart": "මගේ බඩු",
+    "New_Arrivals": "අලුත්",
+    "Baby_Essentials": "ළදරු අත්යවශ්ය භාණ්ඩ",
+    "Girls_Clothing": "ගැහැණු ළමයින්ගේ ඇඳුම්",
+    "Boys_Clothing": "පිරිමි ළමයින්ගේ ඇඳුම්",
+    "Bedding": "ඇඳ ඇතිරිලි",
+    "load_more": "තව බලන්න",
+    "special_packages": "විශේෂ පැකේජ"
+
   }
 }
