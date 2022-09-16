@@ -24,7 +24,7 @@ export default () => {
     <Stack.Navigator screenOptions={screenOptions.stack}>
       <Stack.Screen
         name="Home"
-        component={Ecommerce}
+        component={Home}
         options={{ title: t('navigation.home') }}
       />
 
@@ -96,8 +96,8 @@ export default () => {
       <Stack.Screen name="Pro" component={Pro} options={screenOptions.pro} />
 
       <Stack.Screen
-        name="Profile"
-        component={Profile}
+        name="Baby_Shop"
+        component={Ecommerce}
         options={{ headerShown: false }}
       />
 

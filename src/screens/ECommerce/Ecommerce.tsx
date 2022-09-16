@@ -139,7 +139,7 @@ const Ecommerce = (props: DrawerContentComponentProps<DrawerContentOptions>) => 
       }
 
     return (
-        <Block scroll>
+        <Block scroll paddingTop={30}>
             {/* categories list */}
             <Block
         color={colors.card}
