@@ -24,7 +24,7 @@ export default () => {
     <Stack.Navigator screenOptions={screenOptions.stack}>
       <Stack.Screen
         name="Home"
-        component={Home}
+        component={Register}
         options={{ title: t('navigation.home') }}
       />
 

@@ -6,24 +6,28 @@ import { useData, useTheme, useTranslation } from '../hooks/';
 import * as regex from '../constants/regex';
 import { Block, Button, Input, Image, Text, Checkbox } from '../components/';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
 const isAndroid = Platform.OS === 'android';
 
 interface IRegistration {
-  name: string;
+  fname: string;
+  lname: string;
   email: string;
   password: string;
+  cpassword: string;
   agreed: boolean;
   mobile: number;
 }
 interface IRegistrationValidation {
-  name: boolean;
+  fname: boolean;
+  lname: boolean;
   email: boolean;
   password: boolean;
+  cpassword: boolean;
   agreed: boolean;
   mobile: boolean;
-
 }
 
 const Register = (  
@@ -33,36 +37,59 @@ const Register = (
   const { t } = useTranslation();
   const navigation = useNavigation();
   const [isValid, setIsValid] = useState<IRegistrationValidation>({
-    name: false,
+    fname: false,
+    lname: false,
     email: false,
     password: false,
+    cpassword: false,
     agreed: false,
     mobile: false
   });
   const [registration, setRegistration] = useState<IRegistration>({
-    name: '',
+    fname: '',
+    lname: '',
     email: '',
     password: '',
+    cpassword: '',
     agreed: false,
     mobile: 0
   });
   const { assets, colors, gradients, sizes } = useTheme();
+  const [passwordErrorStatus, setpasswordErrorStatus] = useState("");
+  const handleChange = ( Etype : string , data : any ) => {
+    let temp = registration;
+    if (  Etype == "1" )  temp.fname = data;
+    if (  Etype == "2" )  temp.lname = data;
+    if (  Etype == "3" )  temp.mobile = data;
+    if (  Etype == "4" )  temp.email = data;
+    if (  Etype == "5" )  temp.password = data;
+    if (  Etype == "6" )  temp.cpassword = data;
+    if (  Etype == "7" )  temp.agreed =  data;
+    console.log(temp)
+    console.log(isValid)
 
-  const handleChange = useCallback(
-    (value) => {
-      setRegistration((state) => ({ ...state, ...value }));
-    },
-    [setRegistration],
-  );
-  useEffect(() => {
+    if( temp.cpassword != temp.password) { 
+      setpasswordErrorStatus("Password not match !")
+    }else {
+      setpasswordErrorStatus("")
+    } 
+    setRegistration(temp);
+
     setIsValid((state) => ({
       ...state,
-      name: regex.name.test(registration.name),
+      fname: regex.name.test(registration.fname),
+      lname: regex.name.test(registration.lname),
       email: regex.email.test(registration.email),
       password: regex.password.test(registration.password),
+      cpassword: regex.password.test(registration.cpassword),
       agreed: registration.agreed,
       mobile: regex.mobile.test(registration.mobile.toString())
     }));
+    
+  } 
+
+  useEffect(() => {
+    
   }, [registration, setIsValid]);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -179,14 +206,23 @@ const Register = (
                       <Input
                         autoCapitalize="none"
                         marginBottom={sizes.m}
-                        label={t('common.name')}
-                        placeholder={t('common.namePlaceholder')}
-                        success={Boolean(registration.name && isValid.name)}
-                        danger={Boolean(registration.name && !isValid.name)}
-                        onChangeText={(value) => handleChange({ name: value })}
+                        label={t('common.first_name')}
+                        placeholder={t('common.firstNamePlaceholder')}
+                        success={Boolean(registration.fname && isValid.fname)}
+                        danger={Boolean(registration.fname && !isValid.fname)}
+                        onChangeText={(value) => handleChange( "1", value)}
+                      />
+                       <Input
+                        autoCapitalize="none"
+                        marginBottom={sizes.m}
+                        label={t('common.last_name')}
+                        placeholder={t('common.lastNamePlaceholder')}
+                        success={Boolean(registration.lname && isValid.lname)}
+                        danger={Boolean(registration.lname && !isValid.lname)}
+                        onChangeText={(value) => handleChange( "2" , value)}
                       />
                       <Input
-                        autoCapitalize="none"
+                        autoCapitalize="none" 
                         maxLength={10}
                         keyboardType="numeric"
                         marginBottom={sizes.m}
@@ -194,7 +230,7 @@ const Register = (
                         placeholder={t('common.mobilePlaceholder')}
                         success={Boolean(registration.mobile && isValid.mobile)}
                         danger={Boolean(registration.mobile && !isValid.mobile)}
-                        onChangeText={(value) => handleChange({ mobile: value })}
+                        onChangeText={(value) => handleChange( "3" , value)}
                       />
                       <Input
                         autoCapitalize="none"
@@ -204,7 +240,7 @@ const Register = (
                         placeholder={t('common.emailPlaceholder')}
                         success={Boolean(registration.email && isValid.email)}
                         danger={Boolean(registration.email && !isValid.email)}
-                        onChangeText={(value) => handleChange({ email: value })}
+                        onChangeText={(value) => handleChange( "4", value)}
                       />
                       <Input
                         secureTextEntry
@@ -212,24 +248,41 @@ const Register = (
                         marginBottom={sizes.m}
                         label={t('common.password')}
                         placeholder={t('common.passwordPlaceholder')}
-                        onChangeText={(value) => handleChange({ password: value })}
-                        success={Boolean(registration.password && isValid.password)}
-                        danger={Boolean(registration.password && !isValid.password)}
+                        onChangeText={(value) => handleChange( "5", value)}
+                        success={Boolean(registration.cpassword && isValid.cpassword)}
+                        danger={Boolean(registration.cpassword && !isValid.cpassword)}
                       />
+                      <Input
+                        secureTextEntry
+                        autoCapitalize="none"
+                        marginBottom={sizes.s}
+                        label={t('common.confirm_password')}
+                        placeholder={t('common.confirm_passwordPlaceholder')}
+                        onChangeText={(value) => handleChange( "6", value)}
+                        success={Boolean(registration.cpassword && isValid.cpassword)}
+                        danger={Boolean(registration.cpassword && !isValid.cpassword)}
+                      />
+
+                      <Text  semibold
+                       color={colors.danger}
+                        marginBottom={sizes.m}
+                       >
+                          {passwordErrorStatus}
+                        </Text>
                     </Block>
                     {/* checkbox terms */}
                     <Block row flex={0} align="center" paddingHorizontal={sizes.sm}>
                       <Checkbox
                         marginRight={sizes.sm}
                         checked={registration?.agreed}
-                        onPress={(value) => handleChange({ agreed: value })}
+                        onPress={(value) => handleChange( "7", value) }
                       />
                       <Text paddingRight={sizes.s}>
                         {t('common.terms')} {" "}
                         <Text
                           semibold
                           onPress={() => {
-                            Linking.openURL('https://www.creative-tim.com/terms');
+                            Linking.openURL('https://google.com');
                           }}>
                           {t('common.agree')}
                         </Text>
