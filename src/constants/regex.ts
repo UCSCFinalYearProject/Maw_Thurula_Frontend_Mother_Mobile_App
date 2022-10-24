@@ -8,7 +8,7 @@ export const name: RegExp = /[a-zA-Z\ ]{3,15}/;
  * email validation
  */
 export const email: RegExp = /^[^\s@]+@[^\s@]+\.([^\s@]{2,})+$/;
-export const mobile: RegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;;
+export const mobile: RegExp = /^(\+\d{1,3}[- ]?)?\d{10}$/;
 
 /*
  * password validation, should contain:
@@ -17,5 +17,4 @@ export const mobile: RegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-
  * (?=.*[A-Z]): at least one uppercase case
  * [0-9a-zA-Z]{6,}: at least 6 from the mentioned characters
  */
-export const password: RegExp =
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/;
+export const password: RegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
