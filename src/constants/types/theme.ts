@@ -258,6 +258,7 @@ export interface ThemeIcons {
     bookmark: ImageSourcePropType,
     like: ImageSourcePropType,
     image_gallery: ImageSourcePropType,
+    errorMessage: ImageSourcePropType,
 
 }
 

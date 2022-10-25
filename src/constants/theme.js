@@ -63,8 +63,7 @@ export const ICONS = {
     replay: require('../assets/icons/images/replay.png'),
     thumb_up: require('../assets/icons/images/thumb-up.png'),
     thumb_down: require('../assets/icons/images/thumb-down.png'),
-    award: require('../assets/icons/images/award.png'),
-  
+    award: require('../assets/icons/images/award.png'),  
 };
 export const ASSETS = {
     // fonts

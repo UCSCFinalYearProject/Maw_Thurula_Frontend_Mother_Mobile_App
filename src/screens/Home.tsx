@@ -8,6 +8,8 @@ import { Dimensions } from 'react-native';
 import PhotoGallery from './PhotoGallary';
 import LandingCoursol from '../components/Home/LandingCoursol';
 import MusicTracksPlayer from './MusicTracksPlayer/MusicTracksPlayer';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import {
   useIsDrawerOpen,
   createDrawerNavigator,
@@ -27,7 +29,28 @@ const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
   const handleNavigation = (name: string) => {
     navigation.navigate(name);
   }
+  const storeKey = '@storage_Key';  
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem(storeKey)
+      if(value !== null) {
+        console.log(value)
+        return value;
+  
+      }else{
+        navigation.navigate("Signin");
+      }
+    } catch(e) {
+      // error reading value
+    }
+  }
 
+  useEffect(() => {
+    
+    getData();
+    
+  }, [])
+  
   const handleProducts = useCallback(
     (tab: number) => {
       setTab(tab);
