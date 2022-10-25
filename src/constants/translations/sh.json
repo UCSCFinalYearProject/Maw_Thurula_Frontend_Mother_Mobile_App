@@ -64,8 +64,11 @@
     "resend": "නැවත OTP කේතය යවන්න.",
     "welcome_to_mawthurula": "වෙත සාදරයෙන් පිළිගනිමු",
     "welcome_sub_text": "අප රකින අපිරිමිත සෙනෙහස අම්මා ",
-    "to_home_page": "මුල් පිටුව වෙත"
-
+    "to_home_page": "මුල් පිටුව වෙත",
+    "email_already_used":"මෙම විද්‍යුත් තැපෑල දැනටමත් පවතී",
+    "mobile_already_used":"මෙම ජංගම දුරකථන අංකය දැනටමත් පවතී",
+    "try_again" : "නැවත උත්සහා කරන්න",
+    "invalid_user_login" : "පරිශීලක නාමය හෝ මුරපදය වලංගු නොවේ "
   },
   "app": {
     "name": "මව් තුරුල ",

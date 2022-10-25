@@ -14,6 +14,7 @@ import Tools from '../screens/tools/Tools';
 import EDD from '../screens/tools/EDD';
 import Ovulation from '../screens/tools/Ovulation';
 import Ecommerce from '../screens/ECommerce/Ecommerce';
+import Login from '../screens/Login';
 const Stack = createStackNavigator();
 
 export default () => {
@@ -24,7 +25,7 @@ export default () => {
     <Stack.Navigator screenOptions={screenOptions.stack}>
       <Stack.Screen
         name="Home"
-        component={Register}
+        component={Home}
         options={{ title: t('navigation.home') }}
       />
 
@@ -108,7 +109,7 @@ export default () => {
       />
       <Stack.Screen
         name="Signin"
-        component={Register}
+        component={Login}
         options={{ headerShown: false }}
       />
 

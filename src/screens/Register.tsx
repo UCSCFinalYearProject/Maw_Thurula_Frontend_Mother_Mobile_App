@@ -50,18 +50,28 @@ const Register = (
     mobile: false
   });
   const [registration, setRegistration] = useState<IRegistration>({
-    fname: 'Hansana',
-    lname: 'Ranaweera',
-    email: 'hansana876@gmail.com',
-    password: 'Cybertcc123',
-    cpassword: 'Cybertcc123',
+    fname: '',
+    lname: '',
+    email: '',
+    password: '',
+    cpassword: '',
     agreed: true,
     mobile: 0
   });
+
+  // const [registration, setRegistration] = useState<IRegistration>({
+  //   fname: 'Hansana',
+  //   lname: 'Ranaweera',
+  //   email: 'hansana876@gmail.com',
+  //   password: 'Cybertcc123',
+  //   cpassword: 'Cybertcc123',
+  //   agreed: true,
+  //   mobile: 0
+  // });
   const { assets, colors, gradients, sizes } = useTheme();
   const [passwordErrorStatus, setpasswordErrorStatus] = useState("");
-  const [errorStatus, setErrorStatus] = useState("Email Already Exist!");
-  const [errorStatusVisibility, setErrorStatusVisibility] = useState(true);
+  const [errorStatus, setErrorStatus] = useState("");
+  const [errorStatusVisibility, setErrorStatusVisibility] = useState(false);
   const handleChange = (Etype: string, data: any) => {
     let temp = registration;
     if (Etype == "1") temp.fname = data;
@@ -94,31 +104,61 @@ const Register = (
 
   }
 
+  // useEffect(() => {
+  //   setIsValid({
+  //     fname: true,
+  //     lname: true,
+  //     email: true,
+  //     password: true,
+  //     cpassword: true,
+  //     agreed: true,
+  //     mobile: true
+  //   })
+  // }, [])
+  
 
   const RegisterRequest = async () => {
+    // {
+    //   first_name: "Hansana",
+    //   last_name: "Ranweera",
+    //   password: "123qwe123",
+    //   email: "hansana871@gmail.com",
+    //   DP: "asdasdasdasdasda ",
+    //   mobile: "726300787"
+    // }
     axios.post(`${baseUrl}/mother/register/`,
-    { 
-        first_name: "Hansana", 
-        last_name :  "Ranweera", 
-        password : "123qwe123", 
-        email : "hansana87@gmail.com", 
-        DP : "asdasdasdasdasda ", 
-        mobile : "726300787"
-    }
+      {
+        first_name: registration.fname,
+        last_name: registration.lname,
+        password: registration.password,
+        email: registration.email,
+        DP: registration.fname,
+        mobile: registration.mobile
+      }
+      //  {
+      // first_name: "Hansana",
+      // last_name: "Ranweera",
+      // password: "123qwe123",
+      // email: "hansana871@gmail.com",
+      // DP: "asdasdasdasdasda ",
+      // mobile: "726301787"
+    // }
     ).then((response) => {
       console.log(response.data);
-    }).catch((error) =>  {
+      setCurrentMode("otp");
+    }).catch((error) => {
       if (error.response) {
         setErrorStatus(error.response.data.message)
-        setRegistration({
-          fname: '',
-          lname: '',
-          email: '',
-          password: '',
-          cpassword: '',
-          agreed: false,
-          mobile: 0
-        })
+        setErrorStatusVisibility(true);
+        // setRegistration({
+        //   fname: '',
+        //   lname: '',
+        //   email: '',
+        //   password: '',
+        //   cpassword: '',
+        //   agreed: false,
+        //   mobile: 0
+        // })
         console.log(error.response.data.message);
         console.log(error.response.data.status);
       }
@@ -137,6 +177,8 @@ const Register = (
     }
     // setCurrentMode("opt")
   }, [isValid, registration]);
+
+
   const styles = StyleSheet.create({
     borderStyleBase: {
       width: 30,
@@ -297,30 +339,41 @@ const Register = (
                       >
                         {passwordErrorStatus}
                       </Text>
-
-
-                     
-
-
                     </Block>
                     {/* checkbox terms */}
                     <Modal isVisible={errorStatusVisibility}>
-                      <Block radius={10} align='center' flex={0} gradient={gradients.white} padding={50} > 
-                      <Image
-                        background
-                        resizeMode="contain"
-                        padding={sizes.sm}
-                        source={ICONS.errorMessage}
-                      >
-
-                        </Image>
-                      <Text semibold
-                        color={colors.danger}
-                      > 
-                        {errorStatus}
-                      </Text>
+                      <Block radius={10} align='center' marginHorizontal={80} flex={0} gradient={gradients.white} paddingHorizontal={50} paddingVertical={20}>
+                        <Image
+                          background
+                          resizeMode="contain"
+                          padding={sizes.m}
+                          source={ICONS.errorMessage}
+                        ></Image>
+                        <Text center bold h5 marginVertical={5}
+                          color={colors.danger}>Error</Text>
+                       
+                        <Text center semibold 
+                          color={colors.danger}
+                        >
+                          {/* {errorStatus} */}
+                          {errorStatus == "Email already used!" ? t('common.email_already_used') : ""}
+                          {errorStatus == "Mobile already used!" ? t('common.mobile_already_used') : ""}
+                          
+                        </Text >
+                        <Button
+                          onPress={() => {
+                            setErrorStatusVisibility(false);
+                          }}
+                          height={50}
+                          marginVertical={10}
+                          paddingHorizontal={10}
+                          color={colors.danger}>
+                          <Text bold white transform="uppercase">
+                            {t('common.try_again')}
+                          </Text>
+                        </Button>
                       </Block>
-          
+
                     </Modal>
                     <Block row flex={0} align="center" paddingHorizontal={sizes.sm}>
                       <Checkbox
@@ -341,12 +394,12 @@ const Register = (
                     </Block>
                     <Button
                       onPress={() => {
-                        handleSignUp();
+                        RegisterRequest();
                       }}
                       marginVertical={sizes.s}
                       marginHorizontal={sizes.sm}
                       gradient={gradients.primary}
-                      disabled={Object.values(isValid).includes(false)}>
+                      >
                       <Text bold white transform="uppercase">
                         {t('common.signup')}
                       </Text>
@@ -384,7 +437,7 @@ const Register = (
                   </> : null
               }
               {
-                currentMode == 'opt' ?
+                currentMode == 'otp' ?
                   <>
                     <Text h3 align='center' paddingTop={50} paddingBottom={10} color="#555555"> {t("common.otp_varification")} </Text>
                     <Text align='center' paddingHorizontal={10}  >
@@ -397,7 +450,7 @@ const Register = (
                           style={styles.optInput}
                           textAlign={'center'}
                           keyboardType="number-pad"
-                          onChangeText={(value) => handleChange({ name: value })}
+                          onChangeText={(value) => handleChange( "7" , value)}
                           autoFocus={true}
                           returnKeyType="next"
                           onSubmitEditing={() => refInput2.current.focus()}
@@ -409,7 +462,7 @@ const Register = (
                           style={styles.optInput}
                           maxLength={1}
                           keyboardType="number-pad"
-                          onChangeText={(value) => handleChange({ name: value })}
+                          onChangeText={(value) => handleChange("8" , value)}
                           returnKeyType="next"
                           onSubmitEditing={() => refInput3.current.focus()}
                           ref={refInput2}
@@ -421,7 +474,7 @@ const Register = (
                           style={styles.optInput}
                           maxLength={1}
                           keyboardType="number-pad"
-                          onChangeText={(value) => handleChange({ name: value })}
+                          onChangeText={(value) => handleChange("9" , value)}
                           returnKeyType="next"
                           onSubmitEditing={() => refInput4.current.focus()}
                           ref={refInput3}
@@ -433,7 +486,7 @@ const Register = (
                           style={styles.optInput}
                           maxLength={1}
                           keyboardType="number-pad"
-                          onChangeText={(value) => handleChange({ name: value })}
+                          onChangeText={(value) => handleChange("10" , value)}
                           ref={refInput4}
                         />
                       </Block>
