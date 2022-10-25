@@ -526,7 +526,7 @@ const Register = (
                         marginHorizontal={sizes.sm}
                         gradient={gradients.primary}
                         onPress={() => {
-                          navigation.navigate("Home");
+                          navigation.navigate("Signin");
                         }}
                       >
                         <Text bold white transform="uppercase">
