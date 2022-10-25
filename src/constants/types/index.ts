@@ -7,12 +7,18 @@ export * from './theme';
 
 export interface IUser {
   id: number | string;
-  name?: string;
+  name: string;
   department?: string;
   avatar?: string;
   stats?: {posts?: number; followers?: number; following?: number};
   social?: {twitter?: string; dribbble?: string};
   about?: string;
+}
+
+
+export interface IArticleCategory {
+  id?: number;
+  category_name?: string;
 }
 
 export interface ICategory {

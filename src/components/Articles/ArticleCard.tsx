@@ -6,21 +6,40 @@ import Text from '../Text';
 import Block from '../Block';
 import Image from '../Image';
 import { useTheme, useTranslation } from '../../hooks';
-import { IArticle } from '../../constants/types';
+import { IArticle, ITopArticle } from '../../constants/types';
 import { Dimensions } from 'react-native';
 
 
 const ArticleCard = ({
+  article_id,
   title,
-  description,
-  image,
+  date,
+  no_of_likes,
+  image_1,
   category,
-  rating,
-  location,
-  timestamp,
-  user,
-  onPress,
-}: IArticle) => {
+  des,
+  doctor_id,
+  user_id,
+  name,
+  profile_picture,
+  password,
+  description,
+  phone_number,
+  email,
+  linkedin,
+  facebook,
+  twitter,
+  STATUS,
+  login_status,
+  registered_at,
+  type,
+  reason,
+  NIC,
+  Address,
+  WorkingAt,
+  experience,
+  cardType
+}: ITopArticle) => {
 
   const { t } = useTranslation();
   const { colors, gradients, icons, sizes } = useTheme();
@@ -29,11 +48,11 @@ const ArticleCard = ({
 
   return (
     <Block  >
-      <TouchableWithoutFeedback onPress={onPress}>
-      {category?.id !== 1 ? <Block card padding={sizes.sm} marginTop={sizes.sm} margin={20}>
-        <Image height={170} resizeMode="cover" source={{ uri: image }} />
+      <TouchableWithoutFeedback >
+      {cardType?.id !== 1 ? <Block card padding={sizes.sm} marginTop={sizes.sm} margin={20}>
+        <Image height={170} resizeMode="cover" source={{ uri: image_1 }} />
         {/* article category */}
-        {category?.name && (
+        {title && (
           <Text
             h5
             bold
@@ -42,12 +61,12 @@ const ArticleCard = ({
             transform="uppercase"
             marginLeft={sizes.xs}
             gradient={gradients.primary}>
-            {category?.name}
+            {title}
           </Text>
         )}
 
         {/* article description */}
-        {description && (
+        {des && (
           <Text
             p
             marginTop={sizes.s}
@@ -58,22 +77,22 @@ const ArticleCard = ({
         )}
 
         {/* user details */}
-        {user?.name && (
+        {name && (
           <Block row marginLeft={sizes.xs} marginBottom={sizes.xs}>
             <Image
               radius={sizes.s}
               width={sizes.xl}
               height={sizes.xl}
-              source={{ uri: user?.avatar }}
+              source={{ uri: profile_picture }}
               style={{ backgroundColor: colors.white }}
             />
             <Block justify="center" marginLeft={sizes.s}>
               <Text p semibold>
-                {user?.name}
+                {name}
               </Text>
               <Text p gray>
                 {t('common.posted', {
-                  date: dayjs(timestamp).format('DD MMMM') || '-',
+                  date: dayjs(date).format('DD MMMM') || '-',
                 })}
               </Text>
             </Block>
@@ -81,18 +100,18 @@ const ArticleCard = ({
         )}
 
         {/* location & rating */}
-        {(Boolean(location) || Boolean(rating)) && (
+        {(Boolean(no_of_likes)) && (
           <Block row align="center" paddingVertical={sizes.sm}>
             <Image source={icons.location} marginRight={sizes.s} />
             <Text p size={12} semibold>
-              {location?.city}, {location?.country}
+               {WorkingAt}
             </Text>
             <Text p bold marginHorizontal={sizes.s}>
               •
             </Text>
             <Image source={icons.star} marginRight={sizes.s} />
             <Text p size={12} semibold>
-              {rating}/5
+              {no_of_likes}
             </Text>
           </Block>
         )}
@@ -101,13 +120,13 @@ const ArticleCard = ({
           background
           resizeMode="cover"
           radius={sizes.cardRadius}
-          source={{ uri: image }}>
+          source={{ uri: image_1 }}>
           <Block color={colors.overlay} padding={sizes.padding}>
             <Text h4 white marginBottom={sizes.sm}>
               {title}
             </Text>
             <Text p white>
-              {String(description).substring(0, 100)}
+              {String(des).substring(0, 100)}
             </Text>
             {/* user details */}
             <Block row marginTop={sizes.xxl}>
@@ -115,15 +134,15 @@ const ArticleCard = ({
                 radius={sizes.s}
                 width={sizes.xl}
                 height={sizes.xl}
-                source={{ uri: user?.avatar }}
+                source={{ uri: profile_picture }}
                 style={{ backgroundColor: colors.white }}
               />
               <Block justify="center" marginLeft={sizes.s}>
                 <Text p white semibold>
-                  {user?.name}
+                 Dr {name}
                 </Text>
                 <Text p white>
-                  {user?.department}
+                  {Address}
                 </Text>
               </Block>
             </Block>
