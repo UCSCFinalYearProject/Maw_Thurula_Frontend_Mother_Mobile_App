@@ -9,6 +9,7 @@ import PhotoGallery from './PhotoGallary';
 import LandingCoursol from '../components/Home/LandingCoursol';
 import MusicTracksPlayer from './MusicTracksPlayer/MusicTracksPlayer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import jwt_decode from "jwt-decode";
 
 import {
   useIsDrawerOpen,
@@ -17,6 +18,11 @@ import {
   DrawerContentOptions,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
+
+interface IUser{
+  name: String;
+  id: String
+}
 
 const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
   const {navigation} = props;
@@ -29,14 +35,17 @@ const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
   const handleNavigation = (name: string) => {
     navigation.navigate(name);
   }
+  
+
+  const [loginData, setLoginData] = useState<null | IUser>(null);
   const storeKey = '@storage_Key';  
   const getData = async () => {
     try {
       const value = await AsyncStorage.getItem(storeKey)
       if(value !== null) {
-        console.log(value)
-        return value;
-  
+        var decoded: IUser = jwt_decode(value);
+        setLoginData(decoded);
+        // console.log(loginData)  
       }else{
         navigation.navigate("Signin");
       }
@@ -160,7 +169,7 @@ const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
           <Image source={assets.avatar} style={styles.user_avatart} radius={50} />
           <Block flex={0} >
             <Text font={fonts.bold} >  {t('home.welcome')}</Text>
-            <Text> {t('temp_user.name')} </Text>
+            <Text> {loginData?.name.charAt(0).toUpperCase()}{loginData?.name.slice(1)} </Text>
           </Block>
         </Block>
 
