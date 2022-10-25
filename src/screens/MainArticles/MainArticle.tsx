@@ -41,7 +41,7 @@ const PrediatrcianArticle = (props: DrawerContentComponentProps<DrawerContentOpt
   }
 
   const [ArticleCategory, setArticleCategory] = useState<IArticleCategory[]>([]);
-
+  const [searchText, setsearchText] = useState("");
 
 
   const ArticlesRequest = async () => {
@@ -174,7 +174,7 @@ const PrediatrcianArticle = (props: DrawerContentComponentProps<DrawerContentOpt
           style={{ paddingHorizontal: sizes.padding }}
           contentContainerStyle={{ paddingBottom: sizes.s }}
           renderItem={({ item }) => <Block row align='center'>
-            <Button onPress={() => handleProducts((item.id ? (item?.id - 1) : 0))} marginRight={10}>
+            <Button onPress={() => handleProducts((item.id ? (item?.id ) : 0))} marginRight={10}>
               <Block row align="center" >
                 <Block
                   flex={0}
@@ -184,10 +184,10 @@ const PrediatrcianArticle = (props: DrawerContentComponentProps<DrawerContentOpt
                   marginRight={sizes.s}
                   width={sizes.socialIconSize}
                   height={sizes.socialIconSize}
-                  gradient={gradients?.[tab === (item.id ? (item?.id - 1) : 0) ? 'primary' : 'secondary']}>
+                  gradient={gradients?.[tab === (item.id ? (item?.id) : 0) ? 'primary' : 'secondary']}>
                   <Image source={icons.mother} color={colors.white} style={{ width: 18, height: 18 }} radius={0} />
                 </Block>
-                <Text p font={fonts?.[tab === (item.id ? (item?.id - 1) : 0) ? 'medium' : 'normal']}>
+                <Text p font={fonts?.[tab === (item.id ? (item?.id) : 0) ? 'medium' : 'normal']}>
                   {/* {t('articles.mother')} */}
                   {item.category_name}
                 </Text>
@@ -207,11 +207,11 @@ const PrediatrcianArticle = (props: DrawerContentComponentProps<DrawerContentOpt
       </Block>
 
       <Block color={colors.card} flex={0} padding={sizes.padding} paddingTop={1}>
-        <Input search placeholder={t('common.search')} />
+        <Input search placeholder={t('common.search')} onChangeText={ (value) => { setsearchText(value) }} />
       </Block>
       <Block flex={1} align="center" justify="center">
 
-        <AllArticleList {...{category:tab}} />
+        <AllArticleList {...{category:tab , searchText :searchText}} />
       </Block>
       {/*    {
       tab == 1 ? <HomeContent /> : <></>
