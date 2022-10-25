@@ -6,12 +6,41 @@ import {IArticle, ICategory} from '../../constants/types';
 import {Block, Button, Article, Text} from '../../components';
 import TrendingArticleCard from '../../components/Articles/TrendingArticleCard';
 import ArticleCard from '../../components/Articles/ArticleCard';
+import axios from 'axios';
+import { baseUrl } from '../../API Services/Login_Registrationn';
 
 
-const AllArticleList = () => {
+const AllArticleList = ({category}:{category:number}) => {
   const data = useData();
   const [articles, setArticles] = useState<IArticle[]>([]);
   const {colors, gradients, sizes} = useTheme();
+
+
+  
+  const ArticlesRequest = async () => {
+  
+    axios.get(`${baseUrl}/mother/mother_post_top_five`,
+    ).then((response) => {
+      
+      let temp : ITopArticle[] = response.data.paediatrician.map( (item :ITopArticle ) => {
+        item.cardType = { id : 1, name: "Popular"}
+        return item;
+      });
+      // console.log(temp)
+      setTopArticle(temp);
+
+    }).catch((error) => {
+      if (error.response) {    }
+    });
+  };
+    
+  useEffect(() => {
+    ArticlesRequest();
+    return () => {
+      setArticles([]); // This worked for me
+    };
+  }, [category])
+
 
   // init articles
   useEffect(() => {
