@@ -83,6 +83,7 @@ export const ICONS: ThemeIcons = {
     comment: require('../assets/icons/images/comment.png'),
     like: require('../assets/icons/images/like.png'),
     image_gallery: require('../assets/icons/images/image-gallery.png'),
+    errorMessage: require('../assets/icons/images/error.png')
 
 };
 
@@ -95,7 +96,7 @@ export const ASSETS: ThemeAssets = {
   OpenSansBold: require('../assets/fonts/OpenSans-Bold.ttf'),
   Bindumathi: require('../assets/fonts/Bindumathi.ttf'),
 
-  // backgrounds/logo
+  // backgrounds/logor
   logo: require('../assets/images/logo.png'),
   logoWithLable: require('../assets/images/logowithname.png'),
   header: require('../assets/images/header.png'),
@@ -128,6 +129,7 @@ export const ASSETS: ThemeAssets = {
   x5: require('../assets/images/x5.png'),
   gle: require('../assets/images/gle.png'),
   tesla: require('../assets/images/tesla.png'),
+  tools_set: 0
 };
 
 export const FONTS: ThemeFonts = {

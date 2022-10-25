@@ -8,6 +8,10 @@ import { Block, Button, Input, Image, Text, Checkbox } from '../components/';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
+import { baseUrl } from '../API Services/Login_Registrationn';
+import axios from 'axios';
+import Modal from "react-native-modal";
+import { ICONS } from '../constants/theme';
 
 const isAndroid = Platform.OS === 'android';
 
@@ -30,9 +34,9 @@ interface IRegistrationValidation {
   mobile: boolean;
 }
 
-const Register = (  
-  ) => {
-    // const {navigation} = props;
+const Register = (
+) => {
+  // const {navigation} = props;
   const { isDark } = useData();
   const { t } = useTranslation();
   const navigation = useNavigation();
@@ -46,33 +50,35 @@ const Register = (
     mobile: false
   });
   const [registration, setRegistration] = useState<IRegistration>({
-    fname: '',
-    lname: '',
-    email: '',
-    password: '',
-    cpassword: '',
-    agreed: false,
+    fname: 'Hansana',
+    lname: 'Ranaweera',
+    email: 'hansana876@gmail.com',
+    password: 'Cybertcc123',
+    cpassword: 'Cybertcc123',
+    agreed: true,
     mobile: 0
   });
   const { assets, colors, gradients, sizes } = useTheme();
   const [passwordErrorStatus, setpasswordErrorStatus] = useState("");
-  const handleChange = ( Etype : string , data : any ) => {
+  const [errorStatus, setErrorStatus] = useState("Email Already Exist!");
+  const [errorStatusVisibility, setErrorStatusVisibility] = useState(true);
+  const handleChange = (Etype: string, data: any) => {
     let temp = registration;
-    if (  Etype == "1" )  temp.fname = data;
-    if (  Etype == "2" )  temp.lname = data;
-    if (  Etype == "3" )  temp.mobile = data;
-    if (  Etype == "4" )  temp.email = data;
-    if (  Etype == "5" )  temp.password = data;
-    if (  Etype == "6" )  temp.cpassword = data;
-    if (  Etype == "7" )  temp.agreed =  data;
+    if (Etype == "1") temp.fname = data;
+    if (Etype == "2") temp.lname = data;
+    if (Etype == "3") temp.mobile = data;
+    if (Etype == "4") temp.email = data;
+    if (Etype == "5") temp.password = data;
+    if (Etype == "6") temp.cpassword = data;
+    if (Etype == "7") temp.agreed = data;
     console.log(temp)
     console.log(isValid)
 
-    if( temp.cpassword != temp.password) { 
+    if (temp.cpassword != temp.password) {
       setpasswordErrorStatus("Password not match !")
-    }else {
+    } else {
       setpasswordErrorStatus("")
-    } 
+    }
     setRegistration(temp);
 
     setIsValid((state) => ({
@@ -85,29 +91,52 @@ const Register = (
       agreed: registration.agreed,
       mobile: regex.mobile.test(registration.mobile.toString())
     }));
-    
-  } 
 
-  useEffect(() => {
-    
-  }, [registration, setIsValid]);
+  }
+
+
+  const RegisterRequest = async () => {
+    axios.post(`${baseUrl}/mother/register/`,
+    { 
+        first_name: "Hansana", 
+        last_name :  "Ranweera", 
+        password : "123qwe123", 
+        email : "hansana87@gmail.com", 
+        DP : "asdasdasdasdasda ", 
+        mobile : "726300787"
+    }
+    ).then((response) => {
+      console.log(response.data);
+    }).catch((error) =>  {
+      if (error.response) {
+        setErrorStatus(error.response.data.message)
+        setRegistration({
+          fname: '',
+          lname: '',
+          email: '',
+          password: '',
+          cpassword: '',
+          agreed: false,
+          mobile: 0
+        })
+        console.log(error.response.data.message);
+        console.log(error.response.data.status);
+      }
+    });
+  };
 
   const [isLoading, setIsLoading] = useState(false);
   const [currentMode, setCurrentMode] = useState("register");
   const [optCount, setOptCount] = useState(59);
 
-
   const handleSignUp = useCallback(() => {
     if (!Object.values(isValid).includes(false)) {
       /** send/save registratin data */
       console.log('handleSignUp', registration);
+      RegisterRequest();
     }
-    setCurrentMode("opt")
+    // setCurrentMode("opt")
   }, [isValid, registration]);
-
-
-
-
   const styles = StyleSheet.create({
     borderStyleBase: {
       width: 30,
@@ -210,19 +239,19 @@ const Register = (
                         placeholder={t('common.firstNamePlaceholder')}
                         success={Boolean(registration.fname && isValid.fname)}
                         danger={Boolean(registration.fname && !isValid.fname)}
-                        onChangeText={(value) => handleChange( "1", value)}
+                        onChangeText={(value) => handleChange("1", value)}
                       />
-                       <Input
+                      <Input
                         autoCapitalize="none"
                         marginBottom={sizes.m}
                         label={t('common.last_name')}
                         placeholder={t('common.lastNamePlaceholder')}
                         success={Boolean(registration.lname && isValid.lname)}
                         danger={Boolean(registration.lname && !isValid.lname)}
-                        onChangeText={(value) => handleChange( "2" , value)}
+                        onChangeText={(value) => handleChange("2", value)}
                       />
                       <Input
-                        autoCapitalize="none" 
+                        autoCapitalize="none"
                         maxLength={10}
                         keyboardType="numeric"
                         marginBottom={sizes.m}
@@ -230,7 +259,7 @@ const Register = (
                         placeholder={t('common.mobilePlaceholder')}
                         success={Boolean(registration.mobile && isValid.mobile)}
                         danger={Boolean(registration.mobile && !isValid.mobile)}
-                        onChangeText={(value) => handleChange( "3" , value)}
+                        onChangeText={(value) => handleChange("3", value)}
                       />
                       <Input
                         autoCapitalize="none"
@@ -240,7 +269,7 @@ const Register = (
                         placeholder={t('common.emailPlaceholder')}
                         success={Boolean(registration.email && isValid.email)}
                         danger={Boolean(registration.email && !isValid.email)}
-                        onChangeText={(value) => handleChange( "4", value)}
+                        onChangeText={(value) => handleChange("4", value)}
                       />
                       <Input
                         secureTextEntry
@@ -248,7 +277,7 @@ const Register = (
                         marginBottom={sizes.m}
                         label={t('common.password')}
                         placeholder={t('common.passwordPlaceholder')}
-                        onChangeText={(value) => handleChange( "5", value)}
+                        onChangeText={(value) => handleChange("5", value)}
                         success={Boolean(registration.cpassword && isValid.cpassword)}
                         danger={Boolean(registration.cpassword && !isValid.cpassword)}
                       />
@@ -258,24 +287,46 @@ const Register = (
                         marginBottom={sizes.s}
                         label={t('common.confirm_password')}
                         placeholder={t('common.confirm_passwordPlaceholder')}
-                        onChangeText={(value) => handleChange( "6", value)}
+                        onChangeText={(value) => handleChange("6", value)}
                         success={Boolean(registration.cpassword && isValid.cpassword)}
                         danger={Boolean(registration.cpassword && !isValid.cpassword)}
                       />
 
-                      <Text  semibold
-                       color={colors.danger}
-                        marginBottom={sizes.m}
-                       >
-                          {passwordErrorStatus}
-                        </Text>
+                      <Text semibold
+                        color={colors.danger}
+                      >
+                        {passwordErrorStatus}
+                      </Text>
+
+
+                     
+
+
                     </Block>
                     {/* checkbox terms */}
+                    <Modal isVisible={errorStatusVisibility}>
+                      <Block radius={10} align='center' flex={0} gradient={gradients.white} padding={50} > 
+                      <Image
+                        background
+                        resizeMode="contain"
+                        padding={sizes.sm}
+                        source={ICONS.errorMessage}
+                      >
+
+                        </Image>
+                      <Text semibold
+                        color={colors.danger}
+                      > 
+                        {errorStatus}
+                      </Text>
+                      </Block>
+          
+                    </Modal>
                     <Block row flex={0} align="center" paddingHorizontal={sizes.sm}>
                       <Checkbox
                         marginRight={sizes.sm}
                         checked={registration?.agreed}
-                        onPress={(value) => handleChange( "7", value) }
+                        onPress={(value) => handleChange("7", value)}
                       />
                       <Text paddingRight={sizes.s}>
                         {t('common.terms')} {" "}

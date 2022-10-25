@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = 'https://jsonplaceholder.typicode.com/';
+const baseUrl = 'http://192.168.46.213:3000/';
 
 
 
