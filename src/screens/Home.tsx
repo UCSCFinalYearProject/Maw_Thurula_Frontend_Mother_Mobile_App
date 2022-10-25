@@ -18,12 +18,24 @@ import {
   DrawerContentOptions,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
+import axios from 'axios';
+import { baseUrl } from '../API Services/Login_Registrationn';
 
 interface IUser{
   name: String;
   id: String
 }
+interface ITopArticle{
+  article_id: String;
+  title: String;
+  date: String;
+  no_of_likes: Number;
+  image_1: String;
+  category: String;
+  doctor_id: String;
+  des: String;
 
+}
 const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
   const {navigation} = props;
   const { t } = useTranslation();
@@ -36,7 +48,6 @@ const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
     navigation.navigate(name);
   }
   
-
   const [loginData, setLoginData] = useState<null | IUser>(null);
   const storeKey = '@storage_Key';  
   const getData = async () => {
@@ -54,12 +65,15 @@ const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
     }
   }
 
+  
   useEffect(() => {
     
-    getData();
+    getData();  
     
   }, [])
   
+
+
   const handleProducts = useCallback(
     (tab: number) => {
       setTab(tab);
