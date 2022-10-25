@@ -9,127 +9,38 @@ import { useTheme, useTranslation } from '../../hooks/';
 import { IArticle } from '../../constants/types';
 import { Dimensions } from 'react-native';
 
+interface ITopArticle{
+  article_id: number;
+  title: string;
+  date: string;
+  no_of_likes: Number;
+  image_1: string;
+  category: number;
+  doctor_id: number;
+  des: string;
+}
 
 const TrendingArticleCard = ({
+  article_id,
   title,
-  description,
-  image,
+  date,
+  no_of_likes,
+  image_1,
   category,
-  rating,
-  location,
-  timestamp,
-  user,
-  onPress,
-}: IArticle) => {
-
+  doctor_id,
+  des
+}: ITopArticle) => {
   const { t } = useTranslation();
   const { colors, gradients, icons, sizes } = useTheme();
   const windowWidth = Dimensions.get('window').width;
 
-
   return (
     <Block width={windowWidth - 50}  >
-      <TouchableWithoutFeedback onPress={onPress}>
-      {category?.id !== 1 ? <Block card padding={sizes.sm} marginTop={sizes.sm} marginRight={20}>
-        <Image height={170} resizeMode="cover" source={{ uri: image }} />
-        {/* article category */}
-        {category?.name && (
-          <Text
-            h5
-            bold
-            size={13}
-            marginTop={sizes.s}
-            transform="uppercase"
-            marginLeft={sizes.xs}
-            gradient={gradients.primary}>
-            {category?.name}
-          </Text>
-        )}
-
-        {/* article description */}
-        {description && (
-          <Text
-            p
-            marginTop={sizes.s}
-            marginLeft={sizes.xs}
-            marginBottom={sizes.sm}>
-            {String(description).substring(0, 100)}
-          </Text>
-        )}
-
-        {/* user details */}
-        {user?.name && (
-          <Block row marginLeft={sizes.xs} marginBottom={sizes.xs}>
-            <Image
-              radius={sizes.s}
-              width={sizes.xl}
-              height={sizes.xl}
-              source={{ uri: user?.avatar }}
-              style={{ backgroundColor: colors.white }}
-            />
-            <Block justify="center" marginLeft={sizes.s}>
-              <Text p semibold>
-                {user?.name}
-              </Text>
-              <Text p gray>
-                {t('common.posted', {
-                  date: dayjs(timestamp).format('DD MMMM') || '-',
-                })}
-              </Text>
-            </Block>
-          </Block>
-        )}
-
-        {/* location & rating */}
-        {(Boolean(location) || Boolean(rating)) && (
-          <Block row align="center" paddingVertical={sizes.sm}>
-            <Image source={icons.location} marginRight={sizes.s} />
-            <Text p size={12} semibold>
-              {location?.city}, {location?.country}
-            </Text>
-            <Text p bold marginHorizontal={sizes.s}>
-              •
-            </Text>
-            <Image source={icons.star} marginRight={sizes.s} />
-            <Text p size={12} semibold>
-              {rating}/5
-            </Text>
-          </Block>
-        )}
-      </Block> : <Block card white padding={0} marginTop={sizes.sm}>
-        <Image
-          background
-          resizeMode="cover"
-          radius={sizes.cardRadius}
-          source={{ uri: image }}>
-          <Block color={colors.overlay} padding={sizes.padding}>
-            <Text h4 white marginBottom={sizes.sm}>
-              {title}
-            </Text>
-            <Text p white>
-              {String(description).substring(0, 100)}
-            </Text>
-            {/* user details */}
-            <Block row marginTop={sizes.xxl}>
-              <Image
-                radius={sizes.s}
-                width={sizes.xl}
-                height={sizes.xl}
-                source={{ uri: user?.avatar }}
-                style={{ backgroundColor: colors.white }}
-              />
-              <Block justify="center" marginLeft={sizes.s}>
-                <Text p white semibold>
-                  {user?.name}
-                </Text>
-                <Text p white>
-                  {user?.department}
-                </Text>
-              </Block>
-            </Block>
-          </Block>
-        </Image>
-      </Block>}
+      <TouchableWithoutFeedback >
+        <Block gradient={gradients.black} padding={10}>
+          <Text> Hansana </Text> 
+        </Block>
+      
     </TouchableWithoutFeedback>
     </Block>
   );

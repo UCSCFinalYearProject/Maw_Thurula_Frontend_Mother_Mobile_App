@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { useData, useTheme, useTranslation } from '../hooks/';
 import { Block, Button, Image, Input, Product, Text } from '../components/';
-import { StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import TrendingArticle from './Articles/TrendingArticle';
 import { Dimensions } from 'react-native';
 import PhotoGallery from './PhotoGallary';
@@ -18,12 +18,24 @@ import {
   DrawerContentOptions,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
+import axios from 'axios';
+import { baseUrl } from '../API Services/Login_Registrationn';
 
 interface IUser{
   name: String;
   id: String
 }
+interface ITopArticle{
+  article_id: String;
+  title: String;
+  date: String;
+  no_of_likes: Number;
+  image_1: String;
+  category: String;
+  doctor_id: String;
+  des: String;
 
+}
 const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
   const {navigation} = props;
   const { t } = useTranslation();
@@ -36,7 +48,6 @@ const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
     navigation.navigate(name);
   }
   
-
   const [loginData, setLoginData] = useState<null | IUser>(null);
   const storeKey = '@storage_Key';  
   const getData = async () => {
@@ -54,12 +65,53 @@ const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
     }
   }
 
+
+  interface ITopArticle{
+    article_id: number;
+    title: string;
+    date: string;
+    no_of_likes: number;
+    image_1: string;
+    category: number;
+    doctor_id: number;
+    des: string;
+  
+  }
+  const [TopArticle, setTopArticle] = useState<ITopArticle[]>([
+    {
+      article_id: 3,
+      title: "string",
+      date: "string",
+      no_of_likes: 3,
+      image_1: "string",
+      category: 3,
+      doctor_id: 3,
+      des: "string",
+    }
+  ]);
+
+  const TopArticlesRequest = async () => {
+  
+    axios.get(`${baseUrl}/mother/mother_post_top_five`,
+    ).then((response) => {
+      
+      let temp : ITopArticle[] = response.data;
+      setTopArticle(temp);
+
+    }).catch((error) => {
+      if (error.response) {    }
+    });
+  };
+  
   useEffect(() => {
     
-    getData();
+    getData(); 
+    TopArticlesRequest(); 
     
   }, [])
   
+
+
   const handleProducts = useCallback(
     (tab: number) => {
       setTab(tab);
@@ -134,7 +186,17 @@ const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
           </Text>
         </Block>
         <Block row wrap="wrap" justify="space-between">
-          <TrendingArticle />
+          {/* <TrendingArticle /> */}
+          <FlatList
+        data={TopArticle}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        style={{paddingHorizontal: sizes.padding}}
+        contentContainerStyle={{paddingBottom: sizes.s}}
+        renderItem={({ item : ITopArticle}) => <Text> Hansan {item.article_id} </Text>}
+        // <TrendingArticleCard {...item} />
+      />
         </Block>
 
 
