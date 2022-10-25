@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {FlatList} from 'react-native';
 
 import {useData, useTheme} from '../../hooks';
-import {IArticle, ICategory} from '../../constants/types';
+import {IArticle, ICategory, ITopArticle} from '../../constants/types';
 import {Block, Button, Article, Text} from '../../components';
 import TrendingArticleCard from '../../components/Articles/TrendingArticleCard';
 import axios from 'axios';
@@ -14,29 +14,8 @@ const TrendingArticle = () => {
   const [articles, setArticles] = useState<ITopArticle[]>([]);
   const {colors, gradients, sizes} = useTheme();
 
-  interface ITopArticle{
-    article_id: number;
-    title: string;
-    date: string;
-    no_of_likes: number;
-    image_1: string;
-    category: number;
-    doctor_id: number;
-    des: string;
-  
-  }
-  const [TopArticle, setTopArticle] = useState<ITopArticle[]>([
-    {
-      article_id: 3,
-      title: "string",
-      date: "string",
-      no_of_likes: 3,
-      image_1: "string",
-      category: 3,
-      doctor_id: 3,
-      des: "string",
-    }
-  ]);
+ 
+  const [TopArticle, setTopArticle] = useState<ITopArticle[]>([]);
 
  
   
@@ -45,26 +24,24 @@ const TrendingArticle = () => {
     axios.get(`${baseUrl}/mother/mother_post_top_five`,
     ).then((response) => {
       
-      let temp : ITopArticle[] = response.data;
+      let temp : ITopArticle[] = response.data.paediatrician.map( (item :ITopArticle ) => {
+        item.cardType = { id : 1, name: "Popular"}
+        return item;
+      });
+      // console.log(temp)
       setTopArticle(temp);
 
     }).catch((error) => {
       if (error.response) {    }
     });
   };
-  
-  // useEffect(() => {
-  //   console.log("TopArticle")
-  //   console.log(TopArticle)
-  //   console.log("TopArticle")
-  // }, [TopArticle])
-  
-  // useEffect(() => {
-  //   TopArticlesRequest();
-  //   return () => {
-  //     setArticles([]); // This worked for me
-  //   };
-  // }, [])
+    
+  useEffect(() => {
+    TopArticlesRequest();
+    return () => {
+      setArticles([]); // This worked for me
+    };
+  }, [])
 
   // useEffect(() => {
   //   console.log(TopArticle)
@@ -101,17 +78,17 @@ const TrendingArticle = () => {
 
   return (
     <Block >
-    
     <FlatList
-        data={TopArticle}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-        style={{paddingHorizontal: sizes.padding}}
-        contentContainerStyle={{paddingBottom: sizes.s}}
-        renderItem={({item}) =><Text> Hansan {item.article_id} </Text>}
-      />
-    </Block>
+            data={TopArticle}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={(item: ITopArticle) => `${item?.article_id}`}
+            style={{paddingHorizontal: sizes.padding}}
+            contentContainerStyle={{paddingBottom: sizes.s}}
+            renderItem={({item}) =><TrendingArticleCard {...item} />}
+          />
+        </Block>
   );
 };
 

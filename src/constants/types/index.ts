@@ -151,3 +151,35 @@ export interface IMusicTrack {
   owner?: string,
   image: string
 }
+
+export  interface ITopArticle{
+  article_id?: number;
+  title?: string;
+  date?: string;
+  no_of_likes?: number;
+  image_1?: string;
+  category?: number;
+  doctor_id?: number;
+  des?: string;
+  user_id?: number,
+    name?: string,
+    profile_picture?: string,
+    password?: string,
+    description?: string,
+    phone_number?: string,
+    email?: string,
+    linkedin?: string,
+    facebook?: string,
+    twitter?: string,
+    STATUS?: number,
+    login_status?: number,
+    registered_at?: string,
+    type?: string,
+    reason?: string,
+    NIC?: string,
+    Address?: string,
+    WorkingAt?: string,
+    experience?: number
+    cardType?: { id : number , name: string}
+
+}
