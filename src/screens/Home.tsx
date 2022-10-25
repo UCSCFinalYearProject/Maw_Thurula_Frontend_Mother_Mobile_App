@@ -50,7 +50,7 @@ const Home = ( props: DrawerContentComponentProps<DrawerContentOptions>,) => {
         navigation.navigate("Signin");
       }
     } catch(e) {
-      // error reading value
+      navigation.navigate("Signin");
     }
   }
 
