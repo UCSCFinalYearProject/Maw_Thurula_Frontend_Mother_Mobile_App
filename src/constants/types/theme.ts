@@ -259,6 +259,7 @@ export interface ThemeIcons {
     like: ImageSourcePropType,
     image_gallery: ImageSourcePropType,
     errorMessage: ImageSourcePropType,
+    warrning: ImageSourcePropType
 
 }
 

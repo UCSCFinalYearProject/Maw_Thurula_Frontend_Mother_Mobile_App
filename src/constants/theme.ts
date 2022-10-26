@@ -83,8 +83,8 @@ export const ICONS: ThemeIcons = {
     comment: require('../assets/icons/images/comment.png'),
     like: require('../assets/icons/images/like.png'),
     image_gallery: require('../assets/icons/images/image-gallery.png'),
-    errorMessage: require('../assets/icons/images/error.png')
-
+    errorMessage: require('../assets/icons/images/error.png'),
+    warrning: require('../assets/icons/images/warrning.png')
 };
 
 export const ASSETS: ThemeAssets = {
