@@ -158,6 +158,22 @@ export interface IMusicTrack {
   image: string
 }
 
+export interface ICommPost {
+  post_id: number,
+  post_content: string,
+  user_id: number,
+  image: string,
+  no_of_likes: number,
+  no_of_dislikes: number,
+  status: string,
+  Date: string,
+  category: number,
+  title: string,
+  first_name: string,
+            last_name: string,
+            DP: string,
+}
+
 export  interface ITopArticle{
   article_id?: number;
   title?: string;

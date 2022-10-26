@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 
 import { useData, useTheme, useTranslation } from '../../hooks';
-import { IArticle, IArticleCategory, ICategory, IUser } from '../../constants/types';
+import { IArticle, IArticleCategory, ICategory, ICommPost, IUser } from '../../constants/types';
 import { Block, Button, Article, Text, Image, Input } from '../../components';
 import TrendingArticleCard from '../../components/Articles/TrendingArticleCard';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -44,24 +44,24 @@ const Community = (props: DrawerContentComponentProps<DrawerContentOptions>) => 
     }
   }
 
-  const [ArticleCategory, setArticleCategory] = useState<IArticleCategory[]>([]);
+  const [commuPost, setcommuPost] = useState<ICommPost[]>([]);
   const [searchText, setsearchText] = useState("");
 
 
   const ArticlesRequest = async () => {
 
-    axios.get(`${baseUrl}/mother/Mother_Article_category_list`,
+    axios.get(`${baseUrl}/mother/mother_post`,
     ).then((response) => {
 
-      let temp: IArticleCategory[] = response.data.paediatrician;
+      let temp: ICommPost[] = response.data.paediatrician;
       console.log(temp)
-      setArticleCategory(temp);
+      setcommuPost(temp);
 
     }).catch((error) => {
       if (error.response) { }
     });
   };
-  const [articles, setArticles] = useState<IArticle[]>([]);
+  const [articles, setArticles] = useState<ICommPost[]>([]);
 
   useEffect(() => {
     getData();
@@ -140,25 +140,25 @@ const Community = (props: DrawerContentComponentProps<DrawerContentOptions>) => 
   //     },
   //     like: 6,
   //     time: "08:17:30",
-  //     comment: [
-  //        {
-  //         id: 30,
-  //         name: "HirumaliGamage",
-  //         avatar: "https://i.postimg.cc/MHF8qcsL/5.png",
-  //         comment: `සමාජ මාධ්‍ය/අන්තර්ජාලයේ ඇති සියල්ල විශ්වාස නොකරන්න. ගර්භණී සමයේදී COVID සහ අතුරු ආබාධ පිළිබඳ වැඩි පර්යේෂණ නොමැත. ගැබ්ගැනීමේ "හොඳ" දෙය නම් ඔබට ප්‍රතිවෛරස් ලබා ගත හැක්කේ ඔබ ප්‍රතිශක්තිකරණයෙන් පෙළෙන අය ලෙස සලකන බැවිනි. මම 27 වැනි සතියේ කළා. ඔබ හදිසි ER ප්‍රතිකාරයකට ගොස් ඔබට ප්‍රතිවෛරස් ලබා ගත හැකි දැයි බලන්න. බොහෝ මිනිසුන්ට උණ සමඟ නරක අතට හැරේ. කලබල වෙන්න එපා!`,
-  //         reply: [
-  //           {
-  //             id: 32,
-  //             name: "Minuli Nulansa",
-  //             avatar: "",
-  //             comment: "",
-  //             reply: [
+      // comment: [
+      //    {
+      //     id: 30,
+      //     name: "HirumaliGamage",
+      //     avatar: "https://i.postimg.cc/MHF8qcsL/5.png",
+      //     comment: `සමාජ මාධ්‍ය/අන්තර්ජාලයේ ඇති සියල්ල විශ්වාස නොකරන්න. ගර්භණී සමයේදී COVID සහ අතුරු ආබාධ පිළිබඳ වැඩි පර්යේෂණ නොමැත. ගැබ්ගැනීමේ "හොඳ" දෙය නම් ඔබට ප්‍රතිවෛරස් ලබා ගත හැක්කේ ඔබ ප්‍රතිශක්තිකරණයෙන් පෙළෙන අය ලෙස සලකන බැවිනි. මම 27 වැනි සතියේ කළා. ඔබ හදිසි ER ප්‍රතිකාරයකට ගොස් ඔබට ප්‍රතිවෛරස් ලබා ගත හැකි දැයි බලන්න. බොහෝ මිනිසුන්ට උණ සමඟ නරක අතට හැරේ. කලබල වෙන්න එපා!`,
+      //     reply: [
+      //       {
+      //         id: 32,
+      //         name: "Minuli Nulansa",
+      //         avatar: "",
+      //         comment: "",
+      //         reply: [
                 
-  //             ]
-  //           }, 
-  //         ]
-  //       },    
-  //     ]
+      //         ]
+      //       }, 
+      //     ]
+      //   },    
+      // ]
   //   }]);
   // }, [data, data.categories]);
   const handleNavigation = (name: string) => {
@@ -209,9 +209,9 @@ const Community = (props: DrawerContentComponentProps<DrawerContentOptions>) => 
 
       <Block width={windowWidth} scroll>
         {
-          post.map( (postItem:any, index:number) => {
+          commuPost.map( (postItem:ICommPost, index:number) => {
             return (
-              <PostComponent {...postItem} />
+              <PostComponent {...{props: postItem}} />
             )
           })
         }

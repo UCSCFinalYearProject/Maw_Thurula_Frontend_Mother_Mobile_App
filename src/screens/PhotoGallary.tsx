@@ -57,8 +57,8 @@ const PhotoGallery = () => {
     ];
 
 
-    const [errorStatusVisibility, setErrorStatusVisibility] = useState(false);
-    const [uploadStatusVisibility, setUploadStatusVisibility] = useState(true);
+    const [errorStatusVisibility, setErrorStatusVisibility] = useState(true);
+    const [uploadStatusVisibility, setUploadStatusVisibility] = useState(false);
 
   return (
     <Block marginTop={sizes.m} paddingHorizontal={sizes.padding}>
@@ -120,6 +120,12 @@ const PhotoGallery = () => {
                   <Button
                     onPress={() => {
                       setUploadStatusVisibility(false);
+                      handleUploadImage("Take" , {
+                        saveToPhotos: true,
+                        mediaType: 'photo',
+                        includeBase64: false,
+                        includeExtra,
+                      }) 
                     }}
                     height={50}
                     marginVertical={10}
@@ -136,12 +142,7 @@ const PhotoGallery = () => {
 <Block  center>
             <Button
             
-                    onPress={ () => { handleUploadImage("Take" , {
-                      saveToPhotos: true,
-                      mediaType: 'photo',
-                      includeBase64: false,
-                      includeExtra,
-                    }) }}
+                    onPress={ () => {setUploadStatusVisibility(true);}}
                     height={50}
                     marginVertical={10}
                     paddingHorizontal={10}
